@@ -133,7 +133,41 @@ textarea { min-height: 160px; line-height: 1.6; resize: vertical; }
 }
 
 .columns { display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: start; }
-@media (max-width: 1000px) { .columns { grid-template-columns: 1fr; } }
+.ask-panel { position: sticky; top: 24; align-self: start; }
+
+/* On a phone the question panel would sit under the whole paper.
+   Pin it to the bottom of the screen so the ask box is always reachable. */
+@media (max-width: 1000px) {
+  .columns { grid-template-columns: 1fr; }
+  .columns main { padding-bottom: 46vh; }
+  .ask-panel {
+    position: fixed;
+    z-index: 15;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    max-height: 46vh;
+    padding: 0 12px calc(12px + env(safe-area-inset-bottom));
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+  }
+  .ask-panel > .card {
+    display: flex;
+    flex-direction: column;
+    max-height: 42vh;
+    overflow: hidden;
+    margin: 0;
+  }
+  .ask-panel .chat-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+  }
+  .ask-panel .empty { padding: 8px 12px; }
+  .ask-panel .composer,
+  .ask-panel .handoff-bar { flex-shrink: 0; }
+}
 
 .center { max-width: 620px; margin: 8vh auto 0; }
 

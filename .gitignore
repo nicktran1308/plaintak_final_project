@@ -1,3 +1,43 @@
+# Secrets. .env.example is the template and stays in the repo.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Operating system and editor debris
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+
+# Local backups of the glossary and other working copies
+*.bak
+*.bak[0-9]
+*.bak[0-9][0-9]
+*.log
+
 # Scraped MedlinePlus source documents: large, and redistributing the
 # publishers' PDFs is not covered by their terms. Keep only the derived data.
 plaintalk-data/medlineplus-vi/**
@@ -16,11 +56,3 @@ plaintalk-data/med-easi/
 
 # scispaCy model archives
 plaintalk-data/models/
-
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-node_modules/
-.DS_Store
-.env

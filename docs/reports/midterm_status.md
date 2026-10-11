@@ -3,7 +3,7 @@
 **Nick Tran · CPSC 597 · Dr. Chang-Hyun Jo**
 Bridging Health Literacy Gaps Through Grounded Text Simplification
 
-This file is a working inventory of the project as it stands, drawn from the weekly reports (`week1_week4.md` through `week12_simplify_translate.md`, `interface_walkthrough.md`, `plaintalk-data/medlineplus-vi/ALIGNMENT_NOTES.md`) and checked against the code and result files. It is source material for the midterm, not the midterm itself.
+This file is a working inventory of the project as it stands, drawn from the weekly reports (`week1_week4.md` through `week12_simplify_translate.md`, `../interface/interface_walkthrough.md`, `../../plaintalk-data/medlineplus-vi/ALIGNMENT_NOTES.md`) and checked against the code and result files. It is source material for the midterm, not the midterm itself.
 
 The original plan was sixteen weeks. The safety machinery, the patient interface, and all five quantitative evaluations were finished well ahead of that plan. What remains is inspection, independent glossary review, and the final write-up.
 
@@ -407,7 +407,7 @@ React + Vite in `frontend/`, talking to FastAPI on port 8000. Vite proxies `/api
 
 Components: `LanguagePick.jsx`, `Upload.jsx`, `Paragraph.jsx`, `Chat.jsx`, `Answer.jsx`, `Deferred.jsx`, `HandoffSheet.jsx`. All labels live in `frontend/src/i18n.js` in English and Vietnamese. Body text 20px, document text 22px, 48px minimum tap targets, no hover-only controls, no session timeouts, clinician’s English always visible, deferrals in coral rather than red, `prefers-reduced-motion` respected, 3px focus rings. Typeface is Be Vietnam Pro, drawn for Vietnamese diacritics.
 
-**Intake was changed after the cognitive walkthrough.** `Upload.jsx` now makes paste the primary path and file upload the secondary one, with the label “Lấy từ trong máy này” and a note that the file path is only for a paper already saved on the device. The walkthrough (§7 of `interface_walkthrough.md`) had found the opposite layout: “Chọn tập tin” as the primary button, the paste path visually secondary, and the operating-system file picker untranslatable. Findings 1–4 of that walkthrough describe the interface as it was inspected. The current screen is the response to those findings, and the walkthrough text has not been updated to say so.
+**Intake was changed after the cognitive walkthrough.** `Upload.jsx` now makes paste the primary path and file upload the secondary one, with the label “Lấy từ trong máy này” and a note that the file path is only for a paper already saved on the device. The walkthrough (§7 of `../interface/interface_walkthrough.md`) had found the opposite layout: “Chọn tập tin” as the primary button, the paste path visually secondary, and the operating-system file picker untranslatable. Findings 1–4 of that walkthrough describe the interface as it was inspected. The current screen is the response to those findings, and the walkthrough text has not been updated to say so.
 
 **Translation of the document is still on demand.** There is now a “Dịch toàn bộ giấy tờ” control that walks the paragraphs, shows progress, and can be stopped. It is not automatic at intake. Automatic translation of a full document is on the order of forty model calls and about a minute before the patient sees anything. Per-paragraph “Xem bằng tiếng Việt” remains. Answers to questions come back in the patient’s language without an extra press. The proposal said every screen would be in the patient’s language from intake onward. Interface chrome meets that. Document body meets it only after the patient asks.
 
@@ -428,7 +428,7 @@ Findings from that walk, with current status:
 | 7 | LOW | Tabular lab layout is flattened by a prose splitter | Still true |
 | 8 | MEDIUM | A refusal does not show that the question was added to the handoff list | Still true |
 
-Three of eight findings, and two of the three high-severity ones, were about intake, which is the step before any measured component runs. The walkthrough is a prediction, not an observation. A continuation dated 10 October 2026, in sections 9–14 of `interface_walkthrough.md`, re-scores those eight findings against the current screen, walks Personas B and C on the discharge sheet and the medication guide, and records the WCAG 2.2 and senior-friendly heuristic evaluation. That continuation is the inspection. It is not a user test.
+Three of eight findings, and two of the three high-severity ones, were about intake, which is the step before any measured component runs. The walkthrough is a prediction, not an observation. A continuation dated 10 October 2026, in sections 9–14 of `../interface/interface_walkthrough.md`, re-scores those eight findings against the current screen, walks Personas B and C on the discharge sheet and the medication guide, and records the WCAG 2.2 and senior-friendly heuristic evaluation. That continuation is the inspection. It is not a user test.
 
 A design point worth keeping from the walkthrough: the document contained `HIGH` beside the potassium value, and the system refused “Chỉ số kali của tôi có cao không?” Reading a flag is not the same as telling a patient whether the result is dangerous. The refusal is the system working.
 
@@ -479,13 +479,13 @@ These are the results, in the order the reports established them. Each one chang
 
 In rough order of what a midterm should still be honest about:
 
-- **The interface inspection is written** (`interface_walkthrough.md` §§9–14, 10 October 2026). Personas B and C are walked. The WCAG 2.2 heuristic evaluation is recorded there. Sections 1–8 remain the first inspection of the old upload screen; the continuation says so. Open findings from that continuation, if a later pass fixes anything, are the phone question panel, unassisted paper intake, faint-text contrast, and the refusal card’s missing link to the handoff list.
+- **The interface inspection is written** (`../interface/interface_walkthrough.md` §§9–14, 10 October 2026). Personas B and C are walked. The WCAG 2.2 heuristic evaluation is recorded there. Sections 1–8 remain the first inspection of the old upload screen; the continuation says so. Open findings from that continuation, if a later pass fixes anything, are the phone question panel, unassisted paper intake, faint-text contrast, and the refusal card’s missing link to the handoff list.
 - **Bare-numeral tracking** (0% detection of rounding). Deliberately optional. Negation scope is deliberately not being fixed this semester.
 - **Retrieval-backed exemplar evaluation.** The “full” translation arm used four fixed pairs.
 - **More than one document.** Gate numbers, translation numbers, and the question-answering numbers are one synthetic discharge sheet. The generator exists. It has not been used to make a second sheet for evaluation. The simplification tier is the exception: three external corpora.
 - **Natural gate catch rate.** No natural fidelity failure occurred in 30 candidates. 82.4% is fault injection.
 - **Vietnamese colloquial scope coverage.** Two known misses, standard-register evaluation set.
-- **Final report, system documentation, demonstration, presentation.** The weekly reports are the draft of the evidence. `structure.md` at the repo root is an older planned tree (it still lists `glossary.json`, a `docs/` folder, and a frontend `pages/` directory that do not match the code). `plaintalk-startup-roadmap.md` (29 September 2026) is a separate product note about selling a reviewer workspace and adding languages. It is not a course deliverable unless you decide to use the ablation numbers from it; those numbers are the same n = 10 result, with the same caveat.
+- **Final report, system documentation, demonstration, presentation.** The weekly reports are the draft of the evidence. `../planning/structure.md` is an older planned tree (it still lists `glossary.json`, a `docs/` folder, and a frontend `pages/` directory that do not match the code). `../planning/plaintalk-startup-roadmap.md` (29 September 2026) is a separate product note about selling a reviewer workspace and adding languages. It is not a course deliverable unless you decide to use the ablation numbers from it; those numbers are the same n = 10 result, with the same caveat.
 
 ---
 
@@ -506,7 +506,7 @@ A midterm can be short if the claims stay attached to the measurements.
 - Simplification: large grade-level drops on every corpus; entity preservation 97.9% and gate pass 100% on the target document; both fall off on abstracts; readability alone would have hidden that.
 - Translation: placeholder protection 100% gate pass versus 50% for an unprotected model, on ten paragraphs of one sheet.
 
-**What is deliberately limited.** One document for the safety metrics. One annotator, blind to the verdict. No user study. No BERTScore. Negation scope unfixed. Interface inspection is written in `interface_walkthrough.md` §§9–14; the open findings there are not yet changes to the screen.
+**What is deliberately limited.** One document for the safety metrics. One annotator, blind to the verdict. No user study. No BERTScore. Negation scope unfixed. Interface inspection is written in `../interface/interface_walkthrough.md` §§9–14; the open findings there are not yet changes to the screen.
 
 ---
 
@@ -515,18 +515,18 @@ A midterm can be short if the claims stay attached to the measurements.
 | Claim | File |
 |---|---|
 | Corpus build, encoding, columns, dosing counts | `week1_week4.md` §4–§5 |
-| Alignment precision, 0.65 threshold, defect classes | `plaintalk-data/medlineplus-vi/ALIGNMENT_NOTES.md` |
+| Alignment precision, 0.65 threshold, defect classes | `../../plaintalk-data/medlineplus-vi/ALIGNMENT_NOTES.md` |
 | Pipeline design, readability-versus-abbreviations | `week5_week8.md` |
 | API, NumPy split, Voyage | `week9_integration.md` |
-| 159-question set, threshold 0.30, QA table | `week10_evaluation.md`; raw rows in `eval/results/calibrated.json` |
-| Gate rounds and fault-injection table | `week11_gate_evaluation.md`; `eval/results/gate_mutations.json` |
-| SARI, readability, ablation | `week12_simplify_translate.md`; `eval/results/simplify_*.json`, `translate_ablation.json` |
-| Interface inspection | `interface_walkthrough.md` (Persona A only; UI has since changed) |
-| Current screens and strings | `frontend/src/App.jsx`, `Upload.jsx`, `i18n.js` |
-| Adversarial questions and document facts | `eval/adversarial_set.json` |
-| Directive glossary | `backend/data/glossary_directive_DONE.jsonl` |
-| Exemplars | `backend/data/exemplars.jsonl` (2,956) |
-| Synthetic sheet generator | `eval/synthetic_docs/make_doc_pdf.py` |
+| 159-question set, threshold 0.30, QA table | `week10_evaluation.md`; raw rows in `../../eval/results/calibrated.json` |
+| Gate rounds and fault-injection table | `week11_gate_evaluation.md`; `../../eval/results/gate_mutations.json` |
+| SARI, readability, ablation | `week12_simplify_translate.md`; `../../eval/results/simplify_*.json`, `translate_ablation.json` |
+| Interface inspection | `../interface/interface_walkthrough.md` |
+| Current screens and strings | `../../frontend/src/App.jsx`, `Upload.jsx`, `i18n.js` |
+| Adversarial questions and document facts | `../../eval/adversarial_set.json` |
+| Directive glossary | `../../backend/data/glossary_directive_DONE.jsonl` |
+| Exemplars | `../../backend/data/exemplars.jsonl` (2,956) |
+| Synthetic sheet generator | `../../eval/synthetic_docs/make_doc_pdf.py` |
 
 ---
 

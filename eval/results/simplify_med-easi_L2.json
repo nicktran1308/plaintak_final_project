@@ -1,0 +1,433 @@
+[
+  {
+    "i": 1,
+    "source": "Intervention for obese adolescents should be focused on developing healthy eating and exercise habits rather than on losing a specific amount of weight.",
+    "output": "When helping teenagers who weigh too much, doctors should focus on teaching them to eat healthy foods and exercise. They should not focus on losing a certain amount of weight.",
+    "reference": "The treatment of adolescent obesity is focused on developing healthy eating and exercise habits rather than on losing a specific amount of weight.",
+    "sari": 21.96,
+    "grade_src": 16.0,
+    "grade_out": 7.2,
+    "grade_ref": 16.0,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 2,
+    "source": "The liver may be enlarged, hard, or tender; massive hepatomegaly with easily palpable nodules signifies advanced disease.",
+    "output": "Your liver may be bigger than normal, hard, or sore to touch. If your liver is very large and you can easily feel lumps in it, this means the disease is advanced.",
+    "reference": "Typically, the liver is enlarged and hard. It may feel tender and often lumpy.",
+    "sari": 48.02,
+    "grade_src": 12.6,
+    "grade_out": 5.8,
+    "grade_ref": 4.8,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 3,
+    "source": "Frequency, urgency, and nocturia are due to incomplete emptying and rapid refilling of the bladder. Decreased size and force of the urinary stream cause hesitancy and intermittency. Pain and dysuria are usually not present. Sensations of incomplete emptying, terminal dribbling, overflow incontinence, or complete urinary retention may ensue.",
+    "output": "Your bladder does not empty all the way. It fills up again very quickly. This causes you to need to go to the bathroom a lot. You might feel like you need to go right away. You might wake up at night to go to the bathroom.\n\nYour urine stream is weaker and smaller. It takes longer to start going to the bathroom. Your stream might stop and start.\n\nYou usually do not have pain when you go to the bathroom.\n\nYou might feel like your bladder is not empty. A few drops might come out after you finish. Urine might leak out without you meaning it to. Or you might not be able to go to the bathroom at all.",
+    "reference": "At first, men may have difficulty starting urination. Urination may also feel incomplete. Because the bladder does not empty completely, men have to urinate more frequently, often at night (nocturia).",
+    "sari": 64.07,
+    "grade_src": 13.4,
+    "grade_out": 2.6,
+    "grade_ref": 8.8,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": false,
+      "reasons": [
+        "invented entities not in source: freq:bedtime"
+      ]
+    }
+  },
+  {
+    "i": 4,
+    "source": "Desmopressin",
+    "output": "# Desmopressin\n\nDesmopressin is a medicine. It is a man-made copy of a natural hormone in your body.\n\nThis medicine helps your body hold onto water. It can help if you wet the bed at night. It can also help if you have diabetes insipidus. This is a condition where your body loses too much water.\n\nYour doctor will tell you how much to take. Your doctor will tell you when to take it.\n\nDo not take more than your doctor tells you to take.\n\nTell your doctor if this medicine does not work for you. Tell your doctor if you have side effects.",
+    "reference": "Sometimes, the drug desmopressin",
+    "sari": 66.94,
+    "grade_src": 8.4,
+    "grade_out": 3.6,
+    "grade_ref": 3.7,
+    "entities": {
+      "n_src": 1,
+      "kept": 1,
+      "preserved": 1.0,
+      "passed": false,
+      "reasons": [
+        "invented entities not in source: freq:bedtime"
+      ]
+    }
+  },
+  {
+    "i": 5,
+    "source": "Some patients have weight loss, rarely enough to become underweight. Anemia, glossitis, angular stomatitis, and aphthous ulcers are usually seen in these patients.",
+    "output": "Some patients lose weight. This can sometimes be very bad and make them underweight. These patients often get anemia. They also often get glossitis, angular stomatitis, and aphthous ulcers.",
+    "reference": "Some people are undernourished, have mild weight loss and anemia, or have mouth sores and an inflamed tongue.",
+    "sari": 33.17,
+    "grade_src": 12.0,
+    "grade_out": 7.6,
+    "grade_ref": 8.5,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 6,
+    "source": "Involvement of the carotid and vertebral arteries results in reduced cerebral blood flow manifested by dizziness, syncope, orthostatic hypotension, headaches, transient visual disturbances, transient ischemic attacks, or strokes. Stenotic lesions in a subclavian artery near the origin of a patent vertebral artery can cause posterior circulation ischemic neurologic symptoms or syncope when the arm is used (called subclavian steal syndrome).",
+    "output": "When the carotid and vertebral arteries are involved, less blood flows to the brain. This can cause dizziness, fainting, low blood pressure when standing up, headaches, short vision problems, short attacks where part of the brain does not get blood, or strokes.\n\nA narrowed part of the subclavian artery near where the vertebral artery starts can cause problems in the back part of the brain's blood flow or fainting when you use your arm. This is called subclavian steal syndrome.",
+    "reference": "Head: People may feel dizzy or faint, have headaches, or have problems with vision.",
+    "sari": 35.27,
+    "grade_src": 20.1,
+    "grade_out": 8.4,
+    "grade_ref": 5.9,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 7,
+    "source": "However, if the neonate 's breathing appears obstructed, suctioning is done with an endotracheal tube attached to a meconium aspirator.",
+    "output": "If a newborn baby's breathing seems blocked, doctors will use a tube placed in the baby's airway. A special tool called a meconium aspirator will be attached to remove the blockage.",
+    "reference": "If the newborn 's airway seems blocked by meconium, doctors try to suction it out. Doctors used to do suctioning whenever they saw meconium in the amniotic fluid or in the newborn 's mouth, but this has not been shown to help.",
+    "sari": 54.62,
+    "grade_src": 14.0,
+    "grade_out": 8.0,
+    "grade_ref": 9.5,
+    "entities": {
+      "n_src": 1,
+      "kept": 1,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 8,
+    "source": "Photosensitivity occurs in some patients. Lupus erythematosus tumidus is characterized by pink to violaceous urticarial nonscarring plaques and/or nodules, some annular, in light -exposed areas.",
+    "output": "Some patients get photosensitivity. This means their skin reacts badly to light. Lupus erythematosus tumidus is a skin condition. It causes pink or purple bumps and/or lumps on the skin. Some of these bumps are ring-shaped. They appear in areas that get a lot of sun.",
+    "reference": "Rashes resulting from exposure to sunlight (photosensitivity) occur in some people with lupus, particularly fair-skinned people.",
+    "sari": 36.78,
+    "grade_src": 15.7,
+    "grade_out": 5.1,
+    "grade_ref": 17.2,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 9,
+    "source": "The driving force for these reactions is often the entropic benefit of gaseous evolution ( e.g.",
+    "output": "I cannot rewrite this text for a patient because it is not medical information about a patient's care, condition, or treatment. It is a scientific statement about chemical reactions.\n\nIf you have actual patient medical instructions or information you'd like rewritten, please share that instead.",
+    "reference": "The driving force for these reactions is often the entropic benefit of releasing a gas ( e.g.",
+    "sari": 10.34,
+    "grade_src": 12.3,
+    "grade_out": 11.5,
+    "grade_ref": 9.8,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 10,
+    "source": "Recurrence rates after surgical excision are about 5 to 15 %.",
+    "output": "After surgery to remove the growth, it comes back in about 5 to 15 out of every 100 people.",
+    "reference": "After surgical removal, ganglia return in about 5 to 15 % of people.",
+    "sari": 66.75,
+    "grade_src": 9.6,
+    "grade_out": 8.6,
+    "grade_ref": 10.7,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 11,
+    "source": "Conjunctival redness, eye ache, foreign body sensation, photophobia, and lacrimation may be minimal initially.",
+    "output": "Your eye may feel a little red at first. You might have eye pain. Your eye might feel like something is stuck in it. Bright light might hurt your eyes. Your eye might water a little. These things may not be very bad at the start.",
+    "reference": "Corneal ulcers cause redness, pain, usually a feeling like a foreign object is in the eye (foreign body sensation), aching, sensitivity to bright light, and increased tear production.",
+    "sari": 59.31,
+    "grade_src": 16.0,
+    "grade_out": 0.5,
+    "grade_ref": 16.0,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 12,
+    "source": "In the most severe form (called malignant yellow fever), delirium, intractable hiccups, seizures, coma, and multiple organ failure may occur terminally.",
+    "output": "In the most severe form (called malignant yellow fever), a person may have confusion, hiccups that do not stop, seizures, coma, and failure of many organs near the end.",
+    "reference": "Severe infection can cause seizures, malfunction of several organs, and coma may occur.",
+    "sari": 37.76,
+    "grade_src": 16.8,
+    "grade_out": 13.2,
+    "grade_ref": 10.4,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 13,
+    "source": "Patients with allergic conjunctivitis report having Bilateral mild to intense ocular itching; Conjunctival hyperemia; Photosensitivity (photophobia in severe cases); Eyelid edema; Watery or stringy discharge.",
+    "output": "Patients with allergic eye swelling say they have:\n\n- Itching in both eyes that is mild to very strong\n- Redness of the eye\n- Eyes that hurt when they see bright light (or fear of light in very bad cases)\n- Swelling of the eyelids\n- Watery eyes or thick, stringy eye fluid",
+    "reference": "People with all forms of allergic conjunctivitis develop intense itching and burning in both eyes.",
+    "sari": 45.39,
+    "grade_src": 23.9,
+    "grade_out": 18.9,
+    "grade_ref": 10.7,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 14,
+    "source": "Ankles, knees, elbows, and wrists are usually involved.",
+    "output": "Your ankles, knees, elbows, and wrists are usually affected.",
+    "reference": "Ankles, knees, elbows, and wrists are usually affected.",
+    "sari": 88.89,
+    "grade_src": 8.2,
+    "grade_out": 8.9,
+    "grade_ref": 9.7,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 15,
+    "source": "In a few patients, the first manifestation of hepatocellular carcinoma is bloody ascites, shock, or peritonitis, caused by hemorrhage of the tumor.",
+    "output": "In a few patients, liver cancer first shows up as bloody fluid in the belly, shock, or an infection in the belly. This happens because the tumor is bleeding.",
+    "reference": "Occasionally, the first symptoms are sudden abdominal pain and shock (dangerously low blood pressure) caused by rupture or bleeding of the cancer.",
+    "sari": 33.29,
+    "grade_src": 15.5,
+    "grade_out": 7.2,
+    "grade_ref": 13.4,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 16,
+    "source": "The carbocation intermediate is formed in the reaction 's rate determining step is an sp2 hybridized carbon with trigonal planar molecular geometry.",
+    "output": "I cannot rewrite this text for a 6th grade reading level because it is a chemistry text about molecular reactions, not a medical text. It does not contain any drug names, doses, dates, times, or medical instructions for a patient to understand.\n\nIf you have actual medical text about a patient's care, medications, or treatment, I'd be happy to rewrite that for a 6th grade level.",
+    "reference": "The carbocation intermediate formed in the reaction 's rate limiting step is an sp2 hybridized carbon with trigonal planar molecular geometry.",
+    "sari": 9.94,
+    "grade_src": 17.1,
+    "grade_out": 11.6,
+    "grade_ref": 16.8,
+    "entities": {
+      "n_src": 1,
+      "kept": 0,
+      "preserved": 0.0,
+      "passed": false,
+      "reasons": [
+        "missing critical entities: drug:carbon"
+      ]
+    }
+  },
+  {
+    "i": 17,
+    "source": "Physiological adaptations permit the organism to perform special functions such as making venom, secreting slime, and phototropism ), but also involve more general functions such as growth and development, temperature regulation, ionic balance and other aspects of homeostasis.",
+    "output": "Your body can change and adjust to do special things. Some examples are making poison, releasing slime, and moving toward light. Your body also does more basic things like growing, developing, controlling your temperature, balancing salt in your body, and keeping everything in balance.",
+    "reference": "Physiological adaptations permit the organism to perform special functions ( for instance, making venom, secreting slime, phototropism ); but also more general functions such as growth and development, temperature regulation, ionic balance and other aspects of homeostasis.",
+    "sari": 12.29,
+    "grade_src": 24.0,
+    "grade_out": 9.7,
+    "grade_ref": 24.0,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 18,
+    "source": "Continuous positive airway pressure (CPAP).",
+    "output": "A machine that helps you breathe while you sleep. It pushes air into your nose or mouth to keep your airway open. This is called CPAP.",
+    "reference": "Measures to support breathing.",
+    "sari": 58.95,
+    "grade_src": 14.7,
+    "grade_out": 1.9,
+    "grade_ref": 6.6,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 19,
+    "source": "However, many patients are never oliguric.",
+    "output": "However, many patients never have a low amount of urine.",
+    "reference": "However, some people with acute kidney injury continue to produce normal amounts of urine.",
+    "sari": 47.59,
+    "grade_src": 10.4,
+    "grade_out": 8.4,
+    "grade_ref": 12.6,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 20,
+    "source": "During the acute phase, adult worms in the intestine may cause colicky epigastric pain, anorexia, flatulence, diarrhea, and weight loss.",
+    "output": "When the infection is new and serious, adult worms in your intestines may cause:\n- Sharp belly pain\n- Not wanting to eat\n- Gas\n- Diarrhea\n- Weight loss",
+    "reference": "When adult worms first attach in the intestine, they can cause pain in the upper abdomen, loss of appetite, diarrhea, and weight loss.",
+    "sari": 37.21,
+    "grade_src": 14.0,
+    "grade_out": 11.6,
+    "grade_ref": 11.3,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 21,
+    "source": "Hepatocellular carcinoma develops in 10 to 15 % of patients with alcoholic cirrhosis.",
+    "output": "Liver cancer develops in 10 to 15 % of patients who have liver damage from alcohol.",
+    "reference": "Liver cancer develops in 10 to 15 % of people with cirrhosis due to alcohol abuse.",
+    "sari": 69.9,
+    "grade_src": 16.6,
+    "grade_out": 9.1,
+    "grade_ref": 9.9,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 22,
+    "source": "With diaphragmatic involvement, splinting of the chest and pain in one or both shoulders may occur. Other manifestations of FMF include acute pleurisy (in 30 %); arthritis (in 25 %), usually involving the knee, ankle, and hip; an erysipelas - like rash of the lower leg; and scrotal swelling and pain caused by inflammation of the tunica vaginalis of the testis. Pericarditis occurs very rarely.",
+    "output": "When the diaphragm is involved, you may splint your chest and have pain in one or both shoulders. Other signs of FMF include acute pleurisy (in 30 %); arthritis (in 25 %), usually in the knee, ankle, and hip; a rash on the lower leg that looks like erysipelas; and swelling and pain in the scrotum caused by inflammation of the tunica vaginalis of the testis. Pericarditis happens very rarely.",
+    "reference": "Chest pain: About 30 % of affected people have chest pain. Chest pain, which is typically triggered by breathing, is caused by inflammation of the membranes surrounding the lungs (pleuritis) or, rarely, by inflammation of the sac surrounding the heart (pericarditis). Arthritis: About 25 % of people have inflammation of large joints (arthritis), such as the knees, ankles, and hips. Rash: A painful red rash that usually appears near the ankles may occur but is comparatively rare among affected people in the United States. Scrotum pain: In males, the thick-skinned sac that surrounds and protects the testes (scrotum) may swell and be painful due to inflammation of a testis (testicle).",
+    "sari": 43.45,
+    "grade_src": 11.7,
+    "grade_out": 10.1,
+    "grade_ref": 11.5,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 23,
+    "source": "In acquired lymphocytopenias, lymphocytopenia usually remits with removal of the underlying factor or successful treatment of the underlying disorder.",
+    "output": "When you have low lymphocytes because of something that happened (not something you were born with), the low lymphocytes usually go away. This happens when you remove what is causing the problem or when you treat the illness that is causing it.",
+    "reference": "If the lymphocytopenia is the result of AIDS, combination therapy with at least three antiviral drugs of different classes can increase the number of T cells and lengthen survival. If an infection develops, a specific antibiotic, antifungal, antiviral, or antiparasitic drug directed against the infective organism is given.",
+    "sari": 62.38,
+    "grade_src": 21.0,
+    "grade_out": 9.5,
+    "grade_ref": 17.6,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 24,
+    "source": "The most significant long- term complication of FMF is Chronic renal failure caused by deposition of amyloid protein in the kidneys.",
+    "output": "The biggest long-term problem from FMF is kidney failure. This happens because a protein called amyloid builds up in the kidneys.",
+    "reference": "If not treated adequately, some people with familial Mediterranean fever develop amyloidosis. In amyloidosis, an unusually shaped protein called amyloid is deposited in the kidneys and in many organs and tissues, impairing their function. Amyloid deposits may damage the kidneys, eventually resulting in kidney failure.",
+    "sari": 55.15,
+    "grade_src": 13.4,
+    "grade_out": 6.5,
+    "grade_ref": 15.7,
+    "entities": {
+      "n_src": 1,
+      "kept": 1,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "i": 25,
+    "source": "In this notation, the DA reaction and the dipolar reaction both become a [ 4+2 ] cycloaddition.",
+    "output": "In this way of writing it, the DA reaction and the dipolar reaction are both a [ 4+2 ] cycloaddition.",
+    "reference": "In this notation, the Diels-Alder reaction and the dipolar reaction both become a [ 4+2 ] cycloaddition.",
+    "sari": 25.97,
+    "grade_src": 10.7,
+    "grade_out": 9.1,
+    "grade_ref": 11.5,
+    "entities": {
+      "n_src": 1,
+      "kept": 1,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  }
+]

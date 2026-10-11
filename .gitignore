@@ -1,0 +1,26 @@
+# Scraped MedlinePlus source documents: large, and redistributing the
+# publishers' PDFs is not covered by their terms. Keep only the derived data.
+plaintalk-data/medlineplus-vi/**
+!plaintalk-data/medlineplus-vi/manifest.jsonl
+!plaintalk-data/medlineplus-vi/pairs.jsonl
+!plaintalk-data/medlineplus-vi/pairs_dedup.jsonl
+!plaintalk-data/medlineplus-vi/pairs_scored.jsonl
+!plaintalk-data/medlineplus-vi/pairs_exemplars.jsonl
+!plaintalk-data/medlineplus-vi/glossary_*.jsonl
+!plaintalk-data/medlineplus-vi/*.md
+
+# Other corpora are fetched, not authored here.
+plaintalk-data/plaba/
+plaintalk-data/cochrane/
+plaintalk-data/med-easi/
+
+# scispaCy model archives
+plaintalk-data/models/
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+.DS_Store
+.env

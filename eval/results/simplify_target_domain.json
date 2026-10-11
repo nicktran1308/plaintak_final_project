@@ -1,0 +1,302 @@
+[
+  {
+    "para_id": 1,
+    "level": 1,
+    "source": "Department of Internal Medicine | 1420 Harbor Blvd, Fullerton, CA 92831 | (714) 555-0180",
+    "output": "Department of Internal Medicine | 1420 Harbor Blvd, Fullerton, CA 92831 | (714) 555-0180",
+    "grade_src": 11.7,
+    "grade_out": 11.7,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 1,
+    "level": 2,
+    "source": "Department of Internal Medicine | 1420 Harbor Blvd, Fullerton, CA 92831 | (714) 555-0180",
+    "output": "Department of Internal Medicine | 1420 Harbor Blvd, Fullerton, CA 92831 | (714) 555-0180",
+    "grade_src": 11.7,
+    "grade_out": 11.7,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 7,
+    "level": 1,
+    "source": "Primary: Acute kidney injury (AKI), Stage 2, secondary to volume depletion, superimposed on Stage 3a chronic kidney disease. Secondary: Type 2 diabetes mellitus with diabetic nephropathy; essential hypertension.",
+    "output": "Primary: Your kidneys are not working as well as they should right now (acute kidney injury, Stage 2). This happened because your body lost too much fluid. You also have long-term kidney damage (Stage 3a chronic kidney disease). Secondary: You have Type 2 diabetes mellitus with diabetic nephropathy (kidney damage from diabetes); essential hypertension (high blood pressure).",
+    "grade_src": 16.8,
+    "grade_out": 10.5,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 7,
+    "level": 2,
+    "source": "Primary: Acute kidney injury (AKI), Stage 2, secondary to volume depletion, superimposed on Stage 3a chronic kidney disease. Secondary: Type 2 diabetes mellitus with diabetic nephropathy; essential hypertension.",
+    "output": "**Main Problems:**\n\nYour kidneys are not working well right now (acute kidney injury, Stage 2). This happened because your body lost too much fluid. You also have long-term kidney damage (Stage 3a chronic kidney disease).\n\n**Other Health Issues:**\n\nYou have Type 2 diabetes mellitus with diabetic nephropathy (kidney damage from diabetes). You also have essential hypertension (high blood pressure).",
+    "grade_src": 16.8,
+    "grade_out": 9.0,
+    "entities": {
+      "n_src": 0,
+      "kept": 0,
+      "preserved": null,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 9,
+    "level": 1,
+    "source": "1. HOLD metformin 500 mg PO BID until you follow up with nephrology on 11/14. Do not resume unless instructed by the nephrology service.",
+    "output": "1. STOP taking metformin 500 mg by mouth twice a day until you see the kidney doctor on 11/14. Do not start taking it again unless the kidney doctor tells you to.",
+    "grade_src": 6.8,
+    "grade_out": 6.1,
+    "entities": {
+      "n_src": 5,
+      "kept": 5,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 9,
+    "level": 2,
+    "source": "1. HOLD metformin 500 mg PO BID until you follow up with nephrology on 11/14. Do not resume unless instructed by the nephrology service.",
+    "output": "1. STOP taking metformin 500 mg by mouth twice a day until you see the kidney doctor on 11/14. Do not start taking it again unless the kidney doctor tells you to.",
+    "grade_src": 6.8,
+    "grade_out": 6.1,
+    "entities": {
+      "n_src": 5,
+      "kept": 5,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 10,
+    "level": 1,
+    "source": "2. HOLD lisinopril 20 mg PO daily pending repeat basic metabolic panel. Resumption is contingent upon creatinine normalization.",
+    "output": "HOLD lisinopril 20 mg by mouth daily pending repeat basic metabolic panel. Resumption is contingent upon creatinine normalization.",
+    "grade_src": 13.5,
+    "grade_out": 13.5,
+    "entities": {
+      "n_src": 5,
+      "kept": 5,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 10,
+    "level": 2,
+    "source": "2. HOLD lisinopril 20 mg PO daily pending repeat basic metabolic panel. Resumption is contingent upon creatinine normalization.",
+    "output": "Stop taking lisinopril 20 mg by mouth every day. Wait for a new blood test. You can start taking it again after your creatinine level goes back to normal.",
+    "grade_src": 13.5,
+    "grade_out": 4.9,
+    "entities": {
+      "n_src": 5,
+      "kept": 5,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 11,
+    "level": 1,
+    "source": "3. CONTINUE atorvastatin 40 mg PO QHS without interruption.",
+    "output": "Continue taking atorvastatin 40 mg by mouth every night at bedtime without stopping.",
+    "grade_src": 10.2,
+    "grade_out": 10.4,
+    "entities": {
+      "n_src": 4,
+      "kept": 4,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 11,
+    "level": 2,
+    "source": "3. CONTINUE atorvastatin 40 mg PO QHS without interruption.",
+    "output": "Keep taking atorvastatin 40 mg by mouth every night at bedtime. Do not stop taking it.",
+    "grade_src": 10.2,
+    "grade_out": 4.5,
+    "entities": {
+      "n_src": 4,
+      "kept": 4,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 12,
+    "level": 1,
+    "source": "4. CONTINUE insulin glargine 18 units subcutaneously QHS. Monitor capillary blood glucose TID and prior to bedtime.",
+    "output": "4. KEEP TAKING insulin glargine 18 units as a shot under your skin every night before bed. Check your blood sugar with a finger prick 3 times a day and before you go to bed.",
+    "grade_src": 11.3,
+    "grade_out": 6.7,
+    "entities": {
+      "n_src": 6,
+      "kept": 5,
+      "preserved": 0.8333333333333334,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 12,
+    "level": 2,
+    "source": "4. CONTINUE insulin glargine 18 units subcutaneously QHS. Monitor capillary blood glucose TID and prior to bedtime.",
+    "output": "4. KEEP TAKING insulin glargine 18 units as a shot under your skin every night before bed. Check your blood sugar with a finger prick 3 times a day and before you go to bed.",
+    "grade_src": 11.3,
+    "grade_out": 6.7,
+    "entities": {
+      "n_src": 6,
+      "kept": 5,
+      "preserved": 0.8333333333333334,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 13,
+    "level": 1,
+    "source": "5. Avoid all NSAIDs, including ibuprofen and naproxen, as these agents are nephrotoxic and may precipitate recurrent renal injury.",
+    "output": "Do not take any NSAIDs, including ibuprofen and naproxen. These medicines can hurt your kidneys and may cause kidney damage to happen again.",
+    "grade_src": 14.8,
+    "grade_out": 7.9,
+    "entities": {
+      "n_src": 2,
+      "kept": 2,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 13,
+    "level": 2,
+    "source": "5. Avoid all NSAIDs, including ibuprofen and naproxen, as these agents are nephrotoxic and may precipitate recurrent renal injury.",
+    "output": "Do not take any NSAIDs, including ibuprofen and naproxen. These medicines can hurt your kidneys and may cause kidney damage to happen again.",
+    "grade_src": 14.8,
+    "grade_out": 7.9,
+    "entities": {
+      "n_src": 2,
+      "kept": 2,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 15,
+    "level": 1,
+    "source": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+    "output": "Walk around as much as you can handle. Do not do hard physical activity for 7 days. Follow a low-salt diet (less than 2 g/day) and drink enough fluids by mouth, around 1.5 to 2 L each day unless you are told to do something different. Do not eat a lot of foods with potassium until you have your blood work checked again.",
+    "grade_src": 12.6,
+    "grade_out": 5.1,
+    "entities": {
+      "n_src": 6,
+      "kept": 6,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 15,
+    "level": 2,
+    "source": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+    "output": "Walk around as much as you can. Do not do hard exercise for 7 days. Eat foods with less salt. Try to eat less than 2 g of salt each day. Drink enough water by mouth. Drink around 1.5 to 2 L each day. Do not drink more or less unless a doctor tells you to. Do not eat a lot of foods with potassium. Wait until your blood work is checked again before you eat these foods.",
+    "grade_src": 12.6,
+    "grade_out": 1.4,
+    "entities": {
+      "n_src": 6,
+      "kept": 6,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 17,
+    "level": 1,
+    "source": "Nephrology, Dr. S. Almeida, 11/14/2026 at 9:30 AM, Suite 240. Obtain basic metabolic panel 48 hours prior to this appointment. Primary Care, Dr. R. Kaplan, 11/21/2026 at 2:00 PM.",
+    "output": "Kidney Doctor, Dr. S. Almeida, 11/14/2026 at 9:30 AM, Suite 240. Get a basic blood test 48 hours before this appointment. Main Care Doctor, Dr. R. Kaplan, 11/21/2026 at 2:00 PM.",
+    "grade_src": 6.4,
+    "grade_out": 3.2,
+    "entities": {
+      "n_src": 5,
+      "kept": 5,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 17,
+    "level": 2,
+    "source": "Nephrology, Dr. S. Almeida, 11/14/2026 at 9:30 AM, Suite 240. Obtain basic metabolic panel 48 hours prior to this appointment. Primary Care, Dr. R. Kaplan, 11/21/2026 at 2:00 PM.",
+    "output": "You have a doctor visit with Dr. S. Almeida. He is a Kidney Doctor. The visit is on 11/14/2026 at 9:30 AM in Suite 240. Before this visit, get a basic blood test. Do this 48 hours before your appointment.\n\nYou also have a visit with your Main Care Doctor, Dr. R. Kaplan. This visit is on 11/21/2026 at 2:00 PM.",
+    "grade_src": 6.4,
+    "grade_out": 3.5,
+    "entities": {
+      "n_src": 5,
+      "kept": 5,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 19,
+    "level": 1,
+    "source": "Decreased urine output or anuria; new or worsening lower-extremity edema; dyspnea or orthopnea; persistent nausea and emesis precluding oral intake; confusion or altered mental status; or capillary blood glucose readings persistently below 70 mg/dL or above 300 mg/dL. I have received and understand these instructions. Synthetic example document. Not a real patient record. Page 1 of 1",
+    "output": "Lower amounts of pee or no pee at all; new or worse swelling in your legs or feet; trouble breathing or trouble breathing when lying down; throwing up that keeps you from eating or drinking; confusion or changes in how you think; or finger-stick blood sugar readings that stay below 70 mg/dL or above 300 mg/dL. I have received and understand these instructions. Synthetic example document. Not a real patient record. Page 1 of 1",
+    "grade_src": 11.4,
+    "grade_out": 7.3,
+    "entities": {
+      "n_src": 3,
+      "kept": 3,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  },
+  {
+    "para_id": 19,
+    "level": 2,
+    "source": "Decreased urine output or anuria; new or worsening lower-extremity edema; dyspnea or orthopnea; persistent nausea and emesis precluding oral intake; confusion or altered mental status; or capillary blood glucose readings persistently below 70 mg/dL or above 300 mg/dL. I have received and understand these instructions. Synthetic example document. Not a real patient record. Page 1 of 1",
+    "output": "You may have a problem if you see these signs:\n\n- You make very little pee or no pee at all\n- New swelling or worse swelling in your legs or feet\n- Trouble breathing or trouble breathing when you lie down\n- Throwing up so much you cannot eat or drink\n- Confusion or changes in how you think\n- Finger-stick blood sugar readings that stay below 70 mg/dL or above 300 mg/dL\n\nI have received and understand these instructions. Synthetic example document. Not a real patient record. Page 1 of 1",
+    "grade_src": 11.4,
+    "grade_out": 9.2,
+    "entities": {
+      "n_src": 3,
+      "kept": 3,
+      "preserved": 1.0,
+      "passed": true,
+      "reasons": []
+    }
+  }
+]

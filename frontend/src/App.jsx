@@ -211,7 +211,7 @@ export default function App() {
             ))}
           </main>
 
-          <aside style={{ position: 'sticky', top: 24 }}>
+          <aside className="ask-panel">
             <Chat
               t={t}
               lang={lang}

@@ -24,9 +24,9 @@ The first upgrade is a batch of small interface fixes. Each one is hours of work
 
 8. **Say when whole-document translation skipped a paragraph.** `translateAll` in `App.jsx` leaves a failed paragraph in English and continues. Show a short reason on that card.
 
-9. **Do not advance the level when the text did not change.** On the measured discharge sheet, five of ten paragraphs were identical at levels 1 and 2. The chip still increments, so the press looks like a failure. Compare the new text to the current text in `Paragraph.jsx` and keep the chip still when they match.
+9. **Do not advance the level when the text did not change.** Done. `Paragraph.jsx` compares the new sentence with the one on the card. When they match, the level chip and the text stay. The gate result and whether another press is allowed still update.
 
-10. **On a phone, keep the question box reachable.** Under 1000px, `App.jsx` stacks the question panel under every paragraph. Add a jump link, or pin the ask box. This is one or two days, and it is the layout the phone persona cannot use.
+10. **On a phone, keep the question box reachable.** Done. Under 1000px the question panel is fixed to the bottom of the screen, with the paper padded so the last paragraph can scroll clear of it. Wider screens keep the panel in the side column.
 
 Do items 1 through 7 as one batch. They are hours each. Items 8 through 10 are about a day each.
 
@@ -79,4 +79,4 @@ Electronic health record integration, single sign-on, SOC 2, text-message remind
 
 ## First thing to build
 
-Items 1 through 7 are done. Next is item 8, saying when a whole-document translation skipped a paragraph. Then item 9 and item 10. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.
+Items 1 through 7, 9, and 10 are done. Next is item 8, saying when a whole-document translation skipped a paragraph. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.

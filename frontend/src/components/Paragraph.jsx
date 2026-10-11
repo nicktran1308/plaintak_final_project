@@ -44,6 +44,12 @@ function markFlags(text, lang) {
   return text.replace(RE_FLAG, (m) => `${FLAGS[m]} (${m})`)
 }
 
+/** The ladder sometimes returns the same sentence at the next level. */
+function sameText(a, b) {
+  const norm = (s) => (s ?? '').replace(/\s+/g, ' ').trim()
+  return norm(a) === norm(b)
+}
+
 export default function Paragraph({ para, t, lang, onSimplify, onTranslate }) {
   const [state, setState] = useState(null)   // simplify response
   // A translation supplied at intake, if the document was translated on load.
@@ -59,8 +65,20 @@ export default function Paragraph({ para, t, lang, onSimplify, onTranslate }) {
 
   async function simplify() {
     setBusy('simplify'); setErr(null)
-    try { setState(await onSimplify(para.para_id)) }
-    catch (e) { setErr(e.message) }
+    try {
+      const next = await onSimplify(para.para_id)
+      setState((prev) => {
+        const current = prev?.text ?? para.text
+        if (!sameText(next.text, current)) return next
+        // Keep the chip and the sentence. Still take the gate and whether
+        // another press is allowed, so a blocked or finished ladder is shown.
+        return {
+          ...next,
+          level: prev?.level ?? 0,
+          text: current,
+        }
+      })
+    } catch (e) { setErr(e.message) }
     finally { setBusy(null) }
   }
 

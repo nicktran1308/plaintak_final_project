@@ -183,7 +183,7 @@ Wharton, C., Rieman, J., Lewis, C., & Polson, P. (1994). The cognitive walkthrou
 
 ## 9. The current screen, scored against the first eight findings
 
-The inspection below reads the interface in `frontend/src/` as of this writing: `Upload.jsx`, `Paragraph.jsx`, `Chat.jsx`, `Deferred.jsx`, `HandoffSheet.jsx`, `LanguagePick.jsx`, `App.jsx`, `i18n.js`, and `styles.css`. The same four questions from §1 are asked at each step. A "no" is a finding. Nothing here is an observation of a user.
+The inspection below reads the interface in `../../frontend/src/` as of this writing: `Upload.jsx`, `Paragraph.jsx`, `Chat.jsx`, `Deferred.jsx`, `HandoffSheet.jsx`, `LanguagePick.jsx`, `App.jsx`, `i18n.js`, and `styles.css`. The same four questions from §1 are asked at each step. A "no" is a finding. Nothing here is an observation of a user.
 
 Intake was rebuilt after §5. The text area is the primary control, full width, with a 64px "Đọc giấy của tôi" button. File upload sits below a divider labelled "hoặc", with the button "Lấy từ trong máy này" and the note "Chỉ dùng nếu giấy tờ đã được lưu sẵn trong máy." A "Dịch toàn bộ giấy tờ" control was added on the reading screen. It walks the paragraphs, shows "Đang dịch… n/N", and can be stopped. It does not run at intake.
 
@@ -249,11 +249,11 @@ Assume the sheet has been pasted. Intake splits the numbered medication lines in
 
 **Finding 10 — MEDIUM.** A failed paragraph inside "Dịch toàn bộ giấy tờ" is silent. The reader sees a Vietnamese paper with one English card left in it and no stated reason. The code comment in `App.jsx` says this is intentional: one failure must not abort the run. The absence of a reason is the problem, not the decision to continue.
 
-Pressing "Giải thích đơn giản hơn" on the metformin line is the action this persona came for. `HOLD`, `PO`, and `BID` are the words the parent cannot read. The ladder is allowed to return the same sentence at two levels: on the measured target-domain run, five of ten paragraphs were identical at levels 1 and 2 (`week12_simplify_translate.md` §3.6).
+Pressing "Giải thích đơn giản hơn" on the metformin line is the action this persona came for. `HOLD`, `PO`, and `BID` are the words the parent cannot read. The ladder is allowed to return the same sentence at two levels: on the measured target-domain run, five of ten paragraphs were identical at levels 1 and 2 (`../reports/week12_simplify_translate.md` §3.6).
 
 **Finding 11 — MEDIUM.** When two rungs are the same sentence, the level chip still advances. Question 4 fails: the press appears to have done nothing, or to have failed. The button does not say that a rung may repeat.
 
-The card also shows "Trình độ đọc" and a Flesch-Kincaid number. On this line the source scores 6.8 while still containing `PO` and `BID`. That number is the result §4.1 of `week5_week8.md` says must not be read as ease.
+The card also shows "Trình độ đọc" and a Flesch-Kincaid number. On this line the source scores 6.8 while still containing `PO` and `BID`. That number is the result §4.1 of `../reports/week5_week8.md` says must not be read as ease.
 
 **Finding 12 — MEDIUM.** The grade is printed on the patient card. A helper may treat 6.8 as a property of the medicine, or may believe a lower grade means a safer simplification. The badge beside it ("Đã kiểm tra: tên thuốc, liều lượng, số lần, ngày tháng") is the check that actually bears on safety, and it is easy to read the grade as the result of that check.
 
@@ -376,7 +376,7 @@ She then has to keep the refused question. "In" opens the handoff screen. That s
 
 ## 12. Heuristic evaluation
 
-The proposal commits to this evaluation in place of user testing. Two checklists are applied. WCAG 2.2 level AA is the external one. The numbers in `frontend/README.md` and `styles.css` are the project's own senior-friendly rules: 20px body text, 22px document text, 48px targets, no hover-only control, no session timeout, the clinician's English always visible, deferrals in coral rather than red, a 3px focus ring, and `prefers-reduced-motion` honoured.
+The proposal commits to this evaluation in place of user testing. Two checklists are applied. WCAG 2.2 level AA is the external one. The numbers in `../../frontend/README.md` and `styles.css` are the project's own senior-friendly rules: 20px body text, 22px document text, 48px targets, no hover-only control, no session timeout, the clinician's English always visible, deferrals in coral rather than red, a 3px focus ring, and `prefers-reduced-motion` honoured.
 
 Contrast figures below are for the declared colours, computed as WCAG relative luminance. They are properties of the stylesheet, not of a particular monitor.
 

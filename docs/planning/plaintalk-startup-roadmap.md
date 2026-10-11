@@ -268,4 +268,4 @@ Copy this per language. A language is not "supported" until every item is done.
 - [HHS reaffirms language access requirements under Section 1557 (National Law Review)](https://natlawreview.com/article/hhs-letter-reiterates-expectations-language-accessibility)
 - [LA hospital tests Jaide Health AI to translate discharge notes (STAT)](https://www.statnews.com/2024/11/11/childrens-hospital-los-angeles-tests-generative-ai-translate-discharge-notes/)
 - [Opalite Health (YC W2026)](https://www.startuphub.ai/ai-news/claudes-corner/2026/claudes-corner-opalite-health-yc-w2026)
-- Your own `week12_simplify_translate.md` (ablation and gate results)
+- Your own `../reports/week12_simplify_translate.md` (ablation and gate results)

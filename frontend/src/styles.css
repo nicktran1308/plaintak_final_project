@@ -17,11 +17,13 @@
 :root {
   --ink:        #16272D;
   --ink-soft:   #5F7078;
-  --ink-faint:  #8A9BA1;
+  /* 14–18px labels need 4.5:1. #8A9BA1 was about 2.8:1 on the page. */
+  --ink-faint:  #62747C;
 
   --deep:       #0E3B43;
   --teal:       #1C7293;
-  --sea:        #00A896;
+  /* Focus ring needs 3:1 against the page. #00A896 was about 2.9:1. */
+  --sea:        #147A68;
   --coral:      #B8461F;
 
   --paper:      #FBFAF7;
@@ -89,6 +91,17 @@ button:disabled { opacity: .5; cursor: default; }
 .btn-primary:hover:not(:disabled) { background: #14505C; border-color: #14505C; }
 
 .btn-ghost { background: transparent; border-color: transparent; color: var(--teal); }
+
+.confirm-backdrop {
+  position: fixed; inset: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: rgba(22, 39, 45, 0.45);
+}
+.confirm { width: 100%; max-width: 440px; }
+.confirm h2 { margin-bottom: 8px; }
+.confirm-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.confirm-actions button { flex: 1; }
 
 input, textarea, select {
   font: inherit;

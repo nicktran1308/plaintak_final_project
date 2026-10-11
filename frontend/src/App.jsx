@@ -26,6 +26,8 @@ export default function App() {
   const [error, setError] = useState(null)
   const [progress, setProgress] = useState(null)
   const [translatingAll, setTranslatingAll] = useState(false)
+  const [confirming, setConfirming] = useState(false)
+  const keepGoingRef = useRef(null)
   const cancelRef = useRef(false)
 
   const t = useStrings(lang)
@@ -128,8 +130,19 @@ export default function App() {
 
   function startOver() {
     if (session) api.endSession(session).catch(() => {})
+    setConfirming(false)
     setSession(null); setDoc(null); setHandoff([]); setScreen('language')
   }
+
+  useEffect(() => {
+    if (!confirming) return
+    keepGoingRef.current?.focus()
+    function onKey(e) {
+      if (e.key === 'Escape') setConfirming(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [confirming])
 
   if (screen === 'language') {
     return (
@@ -148,7 +161,7 @@ export default function App() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span className="lang-badge">{lang === 'vi' ? 'Tiếng Việt' : 'English'}</span>
-          <button className="btn-ghost" onClick={startOver}>{t.startOver}</button>
+          <button className="btn-ghost" onClick={() => setConfirming(true)}>{t.startOver}</button>
         </div>
       </header>
 
@@ -206,6 +219,27 @@ export default function App() {
               onOpenHandoff={() => setScreen('handoff')}
             />
           </aside>
+        </div>
+      )}
+
+      {confirming && (
+        <div className="confirm-backdrop" onClick={() => setConfirming(false)}>
+          <div
+            className="card confirm"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="confirm-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 id="confirm-title">{t.startOverAsk}</h2>
+            <p className="muted">{t.startOverHelp}</p>
+            <div className="confirm-actions">
+              <button ref={keepGoingRef} className="btn-primary" onClick={() => setConfirming(false)}>
+                {t.startOverNo}
+              </button>
+              <button onClick={startOver}>{t.startOverYes}</button>
+            </div>
+          </div>
         </div>
       )}
     </div>

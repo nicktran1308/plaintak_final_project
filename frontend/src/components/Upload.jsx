@@ -46,9 +46,15 @@ export default function Upload({ t, onFile, onText, busy, error, progress }) {
           style={{ marginTop: 14, width: '100%', minHeight: 64, fontSize: 21 }}
           onClick={() => onText(pasted)}
           disabled={busy || !enough}
+          aria-describedby={!enough ? 'paste-too-short' : undefined}
         >
           {busy ? <><span className="spin" />{progress || t.uploading}</> : t.usePasted}
         </button>
+        {!enough && (
+          <p id="paste-too-short" className="muted" style={{ fontSize: 16, marginTop: 10, marginBottom: 0 }}>
+            {t.pasteTooShort}
+          </p>
+        )}
 
         {/* Secondary path, for a patient who does have a digital file. */}
         <div style={{

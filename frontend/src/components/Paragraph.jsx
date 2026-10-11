@@ -89,12 +89,7 @@ export default function Paragraph({ para, t, lang, onSimplify, onTranslate }) {
     <div className="card para">
       <div className="para-head">
         {state && state.level > 0
-          ? <>
-              <span className="level-chip">{t.level} {state.level}</span>
-              {state.readability != null && (
-                <span className="grade-chip">{t.reading} {state.readability}</span>
-              )}
-            </>
+          ? <span className="level-chip">{t.level} {state.level}</span>
           : <span className="level-chip plain">{t.original}</span>}
       </div>
 

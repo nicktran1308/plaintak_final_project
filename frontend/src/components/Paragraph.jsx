@@ -39,7 +39,8 @@ const FLAGS = {
 const RE_FLAG = new RegExp(`\\b(${Object.keys(FLAGS).join('|')})\\b`, 'g')
 
 function markFlags(text, lang) {
-  if (lang === 'en') return text
+  if (!text || lang === 'en') return text
+  RE_FLAG.lastIndex = 0
   return text.replace(RE_FLAG, (m) => `${FLAGS[m]} (${m})`)
 }
 
@@ -53,6 +54,8 @@ export default function Paragraph({ para, t, lang, onSimplify, onTranslate }) {
   const isHeader = para.kind === 'header'
   const shown = state?.text ?? para.text
   const blocked = state?.gate === 'blocked'
+  // The page language is Vietnamese, but these spans are still the clinician's English.
+  const passageLang = lang === 'en' ? undefined : 'en'
 
   async function simplify() {
     setBusy('simplify'); setErr(null)
@@ -71,7 +74,7 @@ export default function Paragraph({ para, t, lang, onSimplify, onTranslate }) {
   if (isHeader) {
     return (
       <div className="card para header-para">
-        <p className="para-text header-text">{para.text}</p>
+        <p className="para-text header-text" lang={passageLang}>{markFlags(para.text, lang)}</p>
         {vi?.translation && (
           <p className="vi-text header-text">{markFlags(vi.translation, lang)}</p>
         )}
@@ -93,7 +96,7 @@ export default function Paragraph({ para, t, lang, onSimplify, onTranslate }) {
           : <span className="level-chip plain">{t.original}</span>}
       </div>
 
-      <p className="para-text">{markEntities(shown)}</p>
+      <p className="para-text" lang={passageLang}>{markEntities(markFlags(shown, lang))}</p>
 
       {vi?.translation && (
         <p className="vi-text">{markEntities(markFlags(vi.translation, lang))}</p>
@@ -118,7 +121,7 @@ export default function Paragraph({ para, t, lang, onSimplify, onTranslate }) {
       {state && state.level > 0 && (
         <div className="original-panel">
           <div className="original-label">{t.original}</div>
-          <p className="original-body">{state.original}</p>
+          <p className="original-body" lang={passageLang}>{state.original}</p>
         </div>
       )}
 

@@ -10,9 +10,9 @@ The first upgrade is a batch of small interface fixes. Each one is hours of work
 
 1. **Say that a refused question was saved.** Done. When the backend stores the question (`added_to_handoff`), the coral card adds one line: “Added to the list for your doctor.” / “Đã thêm vào danh sách cho bác sĩ.” The line is in `Deferred.jsx`, the words are in `i18n.js`, and `Chat.jsx` passes the line only when the backend set the flag. An emergency card does not show it, so that card stays on calling for help. Refusal and abstention both show it, because both are stored on the clinician list.
 
-2. **Stop showing the reading-level number to the patient.** `Paragraph.jsx` prints a Flesch-Kincaid grade on the card. On the metformin line that grade is 6.8 while the line still contains `PO` and `BID`. The reports already show that this number scores abbreviations as easy. Hide it from the patient view.
+2. **Stop showing the reading-level number to the patient.** Done. The card still shows the level. It no longer prints the Flesch-Kincaid grade. The backend still computes that number; the patient view in `Paragraph.jsx` does not display it.
 
-3. **Say why the paste button is disabled.** In `Upload.jsx` the button stays off until the text is 20 characters, with no explanation. One sentence under the button.
+3. **Say why the paste button is disabled.** Done. Until the pasted text is 20 characters, `Upload.jsx` shows a short line under the button: “Need more information.” / “Cần thêm thông tin.” The line goes away once the button turns on.
 
 4. **Ask before Start over.** `App.jsx` drops the session on one press. Add a confirmation. On a phone that button is in thumb range.
 
@@ -79,4 +79,4 @@ Electronic health record integration, single sign-on, SOC 2, text-message remind
 
 ## First thing to build
 
-Item 1 is done. Next is item 2, hiding the reading-level number. Then the rest of items 3 through 7. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.
+Items 1 through 3 are done. Next is item 4, asking before Start over. Then items 5 through 7. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.

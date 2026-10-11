@@ -152,7 +152,6 @@ textarea { min-height: 160px; line-height: 1.6; resize: vertical; }
   background: var(--tint-sea); color: #0F6E56; font-weight: 500;
 }
 .level-chip.plain { background: var(--tint); color: var(--ink-soft); }
-.grade-chip { font-size: 15px; color: var(--ink-faint); }
 
 .para-text { font-size: 22px; line-height: 1.7; margin: 0; white-space: pre-wrap; }
 .para-text.header-text { font-weight: 600; font-size: 20px; color: var(--deep); }

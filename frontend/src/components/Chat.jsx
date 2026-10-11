@@ -39,6 +39,13 @@ export default function Chat({ t, onAsk, onOpenHandoff, handoffCount }) {
     emergency: t.emergencyTitle,
   }
 
+  // The backend sets added_to_handoff. This only displays it.
+  // Emergency stays on calling for help, so that card does not mention the list.
+  function savedNote(message) {
+    if (!message.added_to_handoff || message.type === 'emergency') return null
+    return t.savedForDoctor
+  }
+
   return (
     <div className="card">
       <div className="section-label">{t.questions}</div>
@@ -52,7 +59,15 @@ export default function Chat({ t, onAsk, onOpenHandoff, handoffCount }) {
             return <Answer key={i} text={m.text} source={m.source} sourceLabel={t.source} />
           if (m.type === 'error')
             return <div className="error" key={i}>{t.errorTitle}: {m.text}</div>
-          return <Deferred key={i} kind={m.type} text={m.text} title={TITLES[m.type]} />
+          return (
+            <Deferred
+              key={i}
+              kind={m.type}
+              text={m.text}
+              title={TITLES[m.type]}
+              savedNote={savedNote(m)}
+            />
+          )
         })}
 
         {busy && <p className="muted"><span className="spin" />{t.thinking}</p>}

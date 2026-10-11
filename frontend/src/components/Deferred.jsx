@@ -7,6 +7,9 @@
  * question always lands somewhere useful rather than in a dead end.
  *
  * The backend decides which of these applies. This component only renders it.
+ * savedNote is the same fact: the backend already stored the question, and
+ * this line says so. Emergency does not pass one, so that card stays on
+ * calling for help.
  */
 
 const ICONS = {
@@ -33,7 +36,7 @@ const ICONS = {
   ),
 }
 
-export default function Deferred({ kind, text, title }) {
+export default function Deferred({ kind, text, title, savedNote }) {
   return (
     <div className={`deferred ${kind === 'emergency' ? 'emergency' : ''}`} role="status">
       <div className="deferred-head">
@@ -41,6 +44,7 @@ export default function Deferred({ kind, text, title }) {
         <span className="deferred-title">{title}</span>
       </div>
       <p className="deferred-body">{text}</p>
+      {savedNote ? <p className="deferred-saved">{savedNote}</p> : null}
     </div>
   )
 }

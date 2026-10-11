@@ -203,6 +203,15 @@ mark.entity { background: var(--mark); padding: 1px 3px; border-radius: 3px; col
 .deferred-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
 .deferred-title { font-size: 15px; font-weight: 600; color: #993C1D; }
 .deferred-body { font-size: 19px; line-height: 1.6; color: #4A1B0C; margin: 0; }
+.deferred-saved {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid #E4C4B6;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #993C1D;
+}
 .deferred.emergency { background: #FBE3DC; border: 2px solid var(--coral); }
 
 .composer { display: flex; gap: 12px; margin-top: 4px; }

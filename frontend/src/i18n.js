@@ -52,6 +52,7 @@ export const STRINGS = {
     refusalTitle: 'Question for your doctor',
     abstainTitle: 'Not in your paper',
     emergencyTitle: 'This may be an emergency',
+    savedForDoctor: 'Added to the list for your doctor.',
 
     handoffTitle: 'Questions for my doctor',
     handoffEmpty: 'No questions yet. Anything I cannot answer will appear here.',
@@ -109,6 +110,7 @@ export const STRINGS = {
     refusalTitle: 'Câu hỏi cho bác sĩ',
     abstainTitle: 'Không có trong giấy tờ',
     emergencyTitle: 'Đây có thể là trường hợp khẩn cấp',
+    savedForDoctor: 'Đã thêm vào danh sách cho bác sĩ.',
 
     handoffTitle: 'Câu hỏi cho bác sĩ',
     handoffEmpty: 'Chưa có câu hỏi nào. Những câu tôi không trả lời được sẽ hiện ở đây.',

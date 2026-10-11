@@ -60,22 +60,22 @@ class Response:
 # These are static strings, not generated text. They must be available even
 # when the model is unreachable, and they must never vary.
 # --------------------------------------------------------------------------
+# The saved-to-list sentence is not in these strings. The interface shows it
+# as its own line on the card, and only when added_to_handoff is true, so the
+# sentence sits next to the clinician list instead of being buried in the
+# explanation. Emergency stays focused on calling for help.
 FALLBACKS = {
     ("refusal", "en"): (
-        "That is a treatment decision, so I cannot answer it. I have added your "
-        "question to the list for your doctor."
+        "That is a treatment decision, so I cannot answer it."
     ),
     ("refusal", "vi"): (
-        "Đây là quyết định điều trị, nên tôi không thể trả lời. Tôi đã thêm câu "
-        "hỏi này vào danh sách để quý vị hỏi bác sĩ."
+        "Đây là quyết định điều trị, nên tôi không thể trả lời."
     ),
     ("abstain", "en"): (
-        "Your documents do not mention this. I have added your question to the "
-        "list for your doctor."
+        "Your documents do not mention this."
     ),
     ("abstain", "vi"): (
-        "Giấy tờ của quý vị không nói về điều này. Tôi đã thêm câu hỏi vào danh "
-        "sách cho bác sĩ."
+        "Giấy tờ của quý vị không nói về điều này."
     ),
     ("emergency", "en"): (
         "This may be an emergency. Please call 911 or go to the nearest "

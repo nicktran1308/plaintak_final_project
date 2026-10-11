@@ -115,7 +115,7 @@ export const STRINGS = {
     handoffTitle: 'Câu hỏi cho bác sĩ',
     handoffEmpty: 'Chưa có câu hỏi nào. Những câu tôi không trả lời được sẽ hiện ở đây.',
     handoffHelp: 'Hãy in trang này và mang theo khi đi khám.',
-    print: 'In',
+    print: 'Print',
     back: 'Quay lại',
 
     startOver: 'Bắt đầu lại',

@@ -61,6 +61,10 @@ export const STRINGS = {
     back: 'Back',
 
     startOver: 'Start over',
+    startOverAsk: 'Start over?',
+    startOverHelp: 'Your paper and questions will be cleared.',
+    startOverNo: 'Keep going',
+    startOverYes: 'Start over',
     errorTitle: 'Something went wrong',
     retry: 'Try again',
   },
@@ -119,6 +123,10 @@ export const STRINGS = {
     back: 'Quay lại',
 
     startOver: 'Bắt đầu lại',
+    startOverAsk: 'Bắt đầu lại?',
+    startOverHelp: 'Giấy tờ và câu hỏi sẽ mất.',
+    startOverNo: 'Ở lại',
+    startOverYes: 'Bắt đầu lại',
     errorTitle: 'Có lỗi xảy ra',
     retry: 'Thử lại',
   },

@@ -14,9 +14,9 @@ The first upgrade is a batch of small interface fixes. Each one is hours of work
 
 3. **Say why the paste button is disabled.** Done. Until the pasted text is 20 characters, `Upload.jsx` shows a short line under the button: “Need more information.” / “Cần thêm thông tin.” The line goes away once the button turns on.
 
-4. **Ask before Start over.** `App.jsx` drops the session on one press. Add a confirmation. On a phone that button is in thumb range.
+4. **Ask before Start over.** Done. One press opens a dialog in the app, not a system window. “Keep going” / “Ở lại” is the filled button and takes focus. “Start over” clears the paper and the questions. Escape or a tap outside the dialog closes it.
 
-5. **Fix the faint text and the focus ring.** In `frontend/src/styles.css`, `--ink-faint` is about 2.8:1 and the focus color is about 2.9:1. Both fail the accessibility check. Change the two tokens. Body text and the 48px buttons already pass.
+5. **Fix the faint text and the focus ring.** Done. `--ink-faint` is `#62747C` (about 4.7:1 on the page; the old `#8A9BA1` was about 2.8:1). `--sea`, the focus ring, is `#147A68` (about 5:1; the old `#00A896` was about 2.9:1).
 
 6. **Mark English passages as English.** On the paragraph, the original panel, and the citation, set `lang="en"` when the surrounding page is Vietnamese. Screen readers otherwise pronounce the dose line as Vietnamese. This is a few attributes in `Paragraph.jsx` and `Answer.jsx`.
 
@@ -79,4 +79,4 @@ Electronic health record integration, single sign-on, SOC 2, text-message remind
 
 ## First thing to build
 
-Items 1 through 3 are done. Next is item 4, asking before Start over. Then items 5 through 7. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.
+Items 1 through 5 are done. Next is item 6, marking English passages as English. Then item 7. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.

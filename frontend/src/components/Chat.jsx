@@ -9,7 +9,7 @@ import Deferred from './Deferred.jsx'
  * never decides whether an answer was safe to give: scope.py and the retrieval
  * threshold already decided, and this only displays the result.
  */
-export default function Chat({ t, onAsk, onOpenHandoff, handoffCount }) {
+export default function Chat({ t, lang, onAsk, onOpenHandoff, handoffCount }) {
   const [msgs, setMsgs] = useState([])
   const [q, setQ] = useState('')
   const [busy, setBusy] = useState(false)
@@ -56,7 +56,15 @@ export default function Chat({ t, onAsk, onOpenHandoff, handoffCount }) {
         {msgs.map((m, i) => {
           if (m.role === 'q') return <div className="bubble-q" key={i}>{m.text}</div>
           if (m.type === 'answer')
-            return <Answer key={i} text={m.text} source={m.source} sourceLabel={t.source} />
+            return (
+              <Answer
+                key={i}
+                text={m.text}
+                source={m.source}
+                sourceLabel={t.source}
+                passageLang={lang === 'en' ? undefined : 'en'}
+              />
+            )
           if (m.type === 'error')
             return <div className="error" key={i}>{t.errorTitle}: {m.text}</div>
           return (

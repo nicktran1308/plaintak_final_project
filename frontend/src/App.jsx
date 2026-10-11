@@ -214,6 +214,7 @@ export default function App() {
           <aside style={{ position: 'sticky', top: 24 }}>
             <Chat
               t={t}
+              lang={lang}
               onAsk={ask}
               handoffCount={handoff.length}
               onOpenHandoff={() => setScreen('handoff')}

@@ -18,9 +18,9 @@ The first upgrade is a batch of small interface fixes. Each one is hours of work
 
 5. **Fix the faint text and the focus ring.** Done. `--ink-faint` is `#62747C` (about 4.7:1 on the page; the old `#8A9BA1` was about 2.8:1). `--sea`, the focus ring, is `#147A68` (about 5:1; the old `#00A896` was about 2.9:1).
 
-6. **Mark English passages as English.** On the paragraph, the original panel, and the citation, set `lang="en"` when the surrounding page is Vietnamese. Screen readers otherwise pronounce the dose line as Vietnamese. This is a few attributes in `Paragraph.jsx` and `Answer.jsx`.
+6. **Mark English passages as English.** Done. When the page is Vietnamese, the paragraph, the clinician’s original, and the cited source carry `lang="en"`. The answer itself stays in the patient’s language. `Chat.jsx` passes the page language into `Answer.jsx`.
 
-7. **Show flag words before the patient asks for a translation.** `markFlags` in `Paragraph.jsx` already maps `HIGH` to `CAO (HIGH)` and the same for `LOW` and a few others. It runs only on the Vietnamese string after a translation exists. Run it on the English text the patient sees first.
+7. **Show flag words before the patient asks for a translation.** Done. `HIGH` becomes `CAO (HIGH)`, and the same for `LOW`, `NORMAL`, `ABNORMAL`, `CRITICAL`, `POSITIVE`, and `NEGATIVE`, on the English text shown first. The clinician’s original underneath a simplification stays word for word.
 
 8. **Say when whole-document translation skipped a paragraph.** `translateAll` in `App.jsx` leaves a failed paragraph in English and continues. Show a short reason on that card.
 
@@ -79,4 +79,4 @@ Electronic health record integration, single sign-on, SOC 2, text-message remind
 
 ## First thing to build
 
-Items 1 through 5 are done. Next is item 6, marking English passages as English. Then item 7. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.
+Items 1 through 7 are done. Next is item 8, saying when a whole-document translation skipped a paragraph. Then item 9 and item 10. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.

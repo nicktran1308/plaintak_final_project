@@ -1,0 +1,255 @@
+/* ==========================================================================
+   PlainTalk
+
+   Built for a 71-year-old reader with limited English. Three constraints
+   shape every rule below:
+
+   1. 20px body text, not 16px. 22px for document content.
+   2. 48px minimum on anything tappable, well past the 44px guideline.
+   3. Nothing hover-only, no timeouts, and the clinician's original English
+      is always on screen rather than behind a toggle.
+
+   Be Vietnamese Pro is the body face because it was drawn for Vietnamese
+   diacritics. Most sans-serifs stack ế and ộ marks too tightly at large
+   sizes, which is a legibility problem for exactly this reader.
+   ========================================================================== */
+
+:root {
+  --ink:        #16272D;
+  --ink-soft:   #5F7078;
+  --ink-faint:  #8A9BA1;
+
+  --deep:       #0E3B43;
+  --teal:       #1C7293;
+  --sea:        #00A896;
+  --coral:      #B8461F;
+
+  --paper:      #FBFAF7;
+  --card:       #FFFFFF;
+  --tint:       #EFF5F6;
+  --tint-sea:   #E1F5EE;
+  --tint-coral: #FAECE7;
+  --mark:       #FAEEDA;
+  --line:       #D7E2E4;
+
+  --r:    14px;
+  --r-sm: 10px;
+  --tap:  48px;
+
+  --shadow: 0 1px 3px rgba(14, 59, 67, 0.06), 0 6px 20px rgba(14, 59, 67, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 20px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { line-height: 1.25; margin: 0; font-weight: 600; }
+h1 { font-size: 34px; letter-spacing: -0.01em; }
+h2 { font-size: 26px; }
+h3 { font-size: 21px; }
+p  { margin: 0 0 1rem; }
+
+button {
+  font: inherit;
+  font-weight: 500;
+  min-height: var(--tap);
+  padding: 12px 22px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+button:hover:not(:disabled) { border-color: var(--teal); }
+button:disabled { opacity: .5; cursor: default; }
+
+/* Focus must be obvious. Keyboard and switch-control users need it, and a
+   thin default ring is not enough at this type size. */
+:focus-visible {
+  outline: 3px solid var(--sea);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--deep);
+  border-color: var(--deep);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) { background: #14505C; border-color: #14505C; }
+
+.btn-ghost { background: transparent; border-color: transparent; color: var(--teal); }
+
+input, textarea, select {
+  font: inherit;
+  min-height: var(--tap);
+  padding: 12px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--card);
+  color: var(--ink);
+  width: 100%;
+}
+textarea { min-height: 160px; line-height: 1.6; resize: vertical; }
+
+/* ---------- layout ---------- */
+.shell { max-width: 1180px; margin: 0 auto; padding: 0 24px 80px; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 22px 0 18px;
+  border-bottom: 1px solid var(--line); margin-bottom: 28px;
+}
+.brand { display: flex; align-items: baseline; gap: 12px; }
+.brand-name { font-size: 24px; font-weight: 700; color: var(--deep); letter-spacing: -0.02em; }
+.brand-tag { font-size: 15px; color: var(--ink-soft); }
+
+.lang-badge {
+  font-size: 16px; background: var(--tint); color: var(--teal);
+  padding: 8px 16px; border-radius: 999px; white-space: nowrap;
+}
+
+.columns { display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: start; }
+@media (max-width: 1000px) { .columns { grid-template-columns: 1fr; } }
+
+.center { max-width: 620px; margin: 8vh auto 0; }
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+}
+.card + .card { margin-top: 16px; }
+
+.section-label {
+  font-size: 14px; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px;
+}
+
+/* ---------- the paragraph card: the signature element ----------
+   Simplified text and the clinician's original sit on the same sheet,
+   separated by a rule rather than a tab. The argument the whole interface
+   makes is that nothing was lost, so the proof stays visible. */
+.para { }
+.para.header-para { background: var(--tint); box-shadow: none; }
+.para-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+
+.level-chip {
+  font-size: 15px; padding: 6px 14px; border-radius: 999px;
+  background: var(--tint-sea); color: #0F6E56; font-weight: 500;
+}
+.level-chip.plain { background: var(--tint); color: var(--ink-soft); }
+.grade-chip { font-size: 15px; color: var(--ink-faint); }
+
+.para-text { font-size: 22px; line-height: 1.7; margin: 0; white-space: pre-wrap; }
+.para-text.header-text { font-weight: 600; font-size: 20px; color: var(--deep); }
+
+.vi-text {
+  font-size: 22px; line-height: 1.7; margin: 14px 0 0;
+  padding-top: 14px; border-top: 1px dashed var(--line); white-space: pre-wrap;
+}
+
+mark.entity { background: var(--mark); padding: 1px 3px; border-radius: 3px; color: inherit; }
+
+.para-actions { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+
+.original-panel {
+  margin-top: 16px; padding: 14px 16px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-sm);
+}
+.original-label { font-size: 14px; color: var(--ink-faint); margin-bottom: 6px; }
+.original-body { font-size: 17px; line-height: 1.6; color: var(--ink-soft); margin: 0; white-space: pre-wrap; }
+
+.gate-badge {
+  display: flex; align-items: center; gap: 9px; margin-top: 14px;
+  padding: 10px 14px; border-radius: var(--r-sm);
+  background: var(--tint-sea); color: #0F6E56; font-size: 16px;
+}
+.gate-badge.blocked { background: var(--tint-coral); color: #8A3517; }
+
+/* ---------- chat ---------- */
+.chat { display: flex; flex-direction: column; gap: 14px; }
+.chat-scroll { max-height: 62vh; overflow-y: auto; padding-right: 4px; }
+
+.bubble-q {
+  align-self: flex-end; max-width: 88%; margin-left: auto;
+  background: var(--tint); color: var(--teal);
+  padding: 13px 17px; border-radius: var(--r); font-size: 19px;
+}
+
+.answer { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 17px 19px; }
+.answer-text { font-size: 20px; line-height: 1.65; margin: 0 0 12px; white-space: pre-wrap; }
+
+.cite { border-left: 3px solid var(--sea); background: var(--paper); padding: 11px 15px; border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.cite-label { font-size: 13px; color: var(--ink-faint); margin-bottom: 4px; }
+.cite-body { font-size: 16px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+
+/* Deferrals are coral, never red. A refusal is the system working correctly,
+   and it must not read as an error to an anxious reader. */
+.deferred { background: var(--tint-coral); border-radius: var(--r); padding: 17px 19px; }
+.deferred-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+.deferred-title { font-size: 15px; font-weight: 600; color: #993C1D; }
+.deferred-body { font-size: 19px; line-height: 1.6; color: #4A1B0C; margin: 0; }
+.deferred.emergency { background: #FBE3DC; border: 2px solid var(--coral); }
+
+.composer { display: flex; gap: 12px; margin-top: 4px; }
+.composer input { flex: 1; }
+
+.handoff-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 14px 17px; background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--r); margin-top: 14px;
+}
+.handoff-count { display: flex; align-items: center; gap: 10px; font-size: 19px; }
+.count-pill {
+  min-width: 32px; height: 32px; padding: 0 10px; border-radius: 999px;
+  background: var(--coral); color: #fff; font-size: 16px; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* ---------- handoff sheet ---------- */
+.sheet { max-width: 760px; margin: 0 auto; }
+.sheet-q { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.sheet-q:last-child { border-bottom: none; }
+.sheet-num { font-size: 15px; color: var(--ink-faint); margin-bottom: 4px; }
+.sheet-text { font-size: 21px; margin: 0; }
+
+/* ---------- status ---------- */
+.muted { color: var(--ink-soft); font-size: 18px; }
+.error { background: var(--tint-coral); color: #8A3517; padding: 14px 17px; border-radius: var(--r-sm); font-size: 18px; }
+.empty { color: var(--ink-faint); font-size: 18px; text-align: center; padding: 34px 18px; }
+
+.spin { display: inline-block; width: 17px; height: 17px; vertical-align: -3px;
+  border: 2.5px solid var(--line); border-top-color: var(--teal);
+  border-radius: 50%; animation: spin .8s linear infinite; margin-right: 9px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* ---------- print: the handoff sheet is a physical artifact ---------- */
+@media print {
+  body { background: #fff; font-size: 12pt; }
+  .no-print { display: none !important; }
+  .card, .sheet { box-shadow: none; border: none; }
+  .shell { max-width: none; padding: 0; }
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

@@ -1,0 +1,152 @@
+{
+  "seed": 2026,
+  "baseline": 30,
+  "stats": {
+    "invent_dose": {
+      "n": 12,
+      "caught": 12
+    },
+    "drop_dose": {
+      "n": 18,
+      "caught": 18
+    },
+    "alter_dose": {
+      "n": 18,
+      "caught": 18
+    },
+    "drop_frequency": {
+      "n": 13,
+      "caught": 8
+    },
+    "flip_negation": {
+      "n": 11,
+      "caught": 2
+    },
+    "drop_date": {
+      "n": 6,
+      "caught": 6
+    },
+    "swap_drug": {
+      "n": 15,
+      "caught": 14
+    },
+    "round_number": {
+      "n": 3,
+      "caught": 0
+    },
+    "drop_duration": {
+      "n": 6,
+      "caught": 6
+    }
+  },
+  "misses": [
+    {
+      "id": "p9_r1",
+      "mutation": "flip_negation",
+      "original": "1. HOLD metformin 500 mg PO BID until you follow up with nephrology on 11/14. Do not resume unless instructed by the nephrology service.",
+      "mutated": "1. STOP taking metformin 500 mg by mouth twice a day until you see the kidney doctor on 11/14. start taking it again unless the kidney doctor tells you to."
+    },
+    {
+      "id": "p9_r2",
+      "mutation": "flip_negation",
+      "original": "1. HOLD metformin 500 mg PO BID until you follow up with nephrology on 11/14. Do not resume unless instructed by the nephrology service.",
+      "mutated": "Stop taking metformin 500 mg by mouth twice a day. Wait until you see the kidney doctor on 11/14. start taking it again unless the kidney doctor tells you to."
+    },
+    {
+      "id": "p9_r3",
+      "mutation": "flip_negation",
+      "original": "1. HOLD metformin 500 mg PO BID until you follow up with nephrology on 11/14. Do not resume unless instructed by the nephrology service.",
+      "mutated": "Stop taking metformin 500 mg by mouth twice a day.\n\nWait to see the kidney doctor on 11/14.\n\n start taking metformin again.\n\nOnly start it again if the kidney doctor says it is okay."
+    },
+    {
+      "id": "p9_r3",
+      "mutation": "swap_drug",
+      "original": "1. HOLD metformin 500 mg PO BID until you follow up with nephrology on 11/14. Do not resume unless instructed by the nephrology service.",
+      "mutated": "Stop taking insulin glargine 500 mg by mouth twice a day.\n\nWait to see the kidney doctor on 11/14.\n\nDo not start taking metformin again.\n\nOnly start it again if the kidney doctor says it is okay."
+    },
+    {
+      "id": "p11_r1",
+      "mutation": "drop_frequency",
+      "original": "3. CONTINUE atorvastatin 40 mg PO QHS without interruption.",
+      "mutated": "3. CONTINUE atorvastatin 40 mg by mouth every night without interruption."
+    },
+    {
+      "id": "p11_r2",
+      "mutation": "drop_frequency",
+      "original": "3. CONTINUE atorvastatin 40 mg PO QHS without interruption.",
+      "mutated": "Take atorvastatin 40 mg by mouth every night . Do not stop taking it."
+    },
+    {
+      "id": "p11_r2",
+      "mutation": "flip_negation",
+      "original": "3. CONTINUE atorvastatin 40 mg PO QHS without interruption.",
+      "mutated": "Take atorvastatin 40 mg by mouth every night before bed. stop taking it."
+    },
+    {
+      "id": "p11_r3",
+      "mutation": "drop_frequency",
+      "original": "3. CONTINUE atorvastatin 40 mg PO QHS without interruption.",
+      "mutated": "Take atorvastatin 40 mg by mouth before bed. Do not stop taking it."
+    },
+    {
+      "id": "p11_r3",
+      "mutation": "flip_negation",
+      "original": "3. CONTINUE atorvastatin 40 mg PO QHS without interruption.",
+      "mutated": "Take atorvastatin 40 mg by mouth every night before bed. stop taking it."
+    },
+    {
+      "id": "p12_r1",
+      "mutation": "drop_frequency",
+      "original": "4. CONTINUE insulin glargine 18 units subcutaneously QHS. Monitor capillary blood glucose TID and prior to bedtime.",
+      "mutated": "4. CONTINUE insulin glargine 18 units under the skin every night . Check your blood sugar three times a day and before you go to sleep at night."
+    },
+    {
+      "id": "p13_r3",
+      "mutation": "flip_negation",
+      "original": "5. Avoid all NSAIDs, including ibuprofen and naproxen, as these agents are nephrotoxic and may precipitate recurrent renal injury.",
+      "mutated": "take NSAIDs. This means do not take ibuprofen. This means do not take naproxen. These medicines can hurt your kidneys. They might make your kidney problems come back."
+    },
+    {
+      "id": "p15_r1",
+      "mutation": "round_number",
+      "original": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+      "mutated": "Walk around as much as you feel able to. Do not do hard exercise or heavy activity for 7 days. Follow a diet that is low in salt (less than 2 g/day) and drink enough fluids by mouth, about 2 to 2 L daily unless your doctor tells you something different. Do not eat foods high in potassium until you have your blood work checked again."
+    },
+    {
+      "id": "p15_r1",
+      "mutation": "drop_frequency",
+      "original": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+      "mutated": "Walk around as much as you feel able to. Do not do hard exercise or heavy activity for 7 days. Follow a diet that is low in salt (less than 2 g/day) and drink enough fluids by mouth, about 1.5 to 2 L unless your doctor tells you something different. Do not eat foods high in potassium until you have your blood work checked again."
+    },
+    {
+      "id": "p15_r1",
+      "mutation": "flip_negation",
+      "original": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+      "mutated": "Walk around as much as you feel able to. Do not do hard exercise or heavy activity for 7 days. Follow a diet that is low in salt (less than 2 g/day) and drink enough fluids by mouth, about 1.5 to 2 L daily unless your doctor tells you something different. eat foods high in potassium until you have your blood work checked again."
+    },
+    {
+      "id": "p15_r2",
+      "mutation": "round_number",
+      "original": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+      "mutated": "Walk around as much as you can. Do not do hard exercise or heavy activity for 7 days. Eat foods with less salt. You should have less than 2 g of salt each day. Drink enough water by mouth. Drink about 2 to 2 L each day. Your doctor may tell you to drink a different amount. Do not eat foods high in potassium until your blood work is checked again."
+    },
+    {
+      "id": "p15_r2",
+      "mutation": "flip_negation",
+      "original": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+      "mutated": "Walk around as much as you can. do hard exercise or heavy activity for 7 days. Eat foods with less salt. You should have less than 2 g of salt each day. Drink enough water by mouth. Drink about 1.5 to 2 L each day. Your doctor may tell you to drink a different amount. Do not eat foods high in potassium until your blood work is checked again."
+    },
+    {
+      "id": "p15_r3",
+      "mutation": "round_number",
+      "original": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+      "mutated": "Walk around as much as you can.\n\nDo not do hard exercise.\n\nDo not do heavy activity for 7 days.\n\nEat foods with less salt.\n\nYou should have less than 2 g of salt each day.\n\nDrink enough water by mouth.\n\nDrink about 2 to 2 L each day.\n\nYour doctor may tell you to drink a different amount.\n\nDo not eat foods high in potassium until your blood work is checked again."
+    },
+    {
+      "id": "p15_r3",
+      "mutation": "flip_negation",
+      "original": "Ambulate as tolerated. Avoid strenuous exertion for 7 days. Adhere to a sodium-restricted diet (less than 2 g/day) and maintain adequate oral hydration, approximately 1.5 to 2 L daily unless otherwise directed. Restrict dietary potassium pending repeat electrolyte assessment.",
+      "mutated": "Walk around as much as you can.\n\nDo not do hard exercise.\n\n do heavy activity for 7 days.\n\nEat foods with less salt.\n\nYou should have less than 2 g of salt each day.\n\nDrink enough water by mouth.\n\nDrink about 1.5 to 2 L each day.\n\nYour doctor may tell you to drink a different amount.\n\nDo not eat foods high in potassium until your blood work is checked again."
+    }
+  ]
+}

@@ -186,6 +186,13 @@ MONTHS = ("january february march april may june july august september "
 # --------------------------------------------------------------------------
 _UNIT_ALT = "|".join(sorted(UNIT_CANON, key=len, reverse=True))
 RE_DOSE = re.compile(rf"\b(\d+(?:[.,]\d+)?)\s*({_UNIT_ALT})\b", re.I)
+# "1.5 to 2 L": only "2 L" carries a unit, so the 1.5 was invisible and
+# rounding it to "2 to 2 L" passed. The first number inherits that unit.
+RE_RANGE = re.compile(
+    rf"\b(\d+(?:[.,]\d+)?)\s*(?:to|through|and|–|—|-)\s*"
+    rf"(\d+(?:[.,]\d+)?)\s*({_UNIT_ALT})\b",
+    re.I,
+)
 RE_RATIO = re.compile(rf"\b(\d+(?:[.,]\d+)?)\s*(mg|mcg|g)\s*/\s*(dl|l|ml|kg)\b", re.I)
 RE_EVERY_N = re.compile(r"\bevery\s+(\d+)\s*(hour|hours|hr|hrs|day|days|week|weeks)\b", re.I)
 RE_DATE_NUM = re.compile(r"\b(\d{1,2})/(\d{1,2})(?:/(\d{2,4}))?\b")
@@ -235,6 +242,10 @@ def extract_entities(text: str, use_ner: bool = True) -> set[Entity]:
             continue
         num, unit = _norm_num(m.group(1)), UNIT_CANON[m.group(2).lower()]
         ents.add(Entity("dose", f"{num}{unit}", m.group(0)))
+
+    for m in RE_RANGE.finditer(text):
+        unit = UNIT_CANON[m.group(3).lower()]
+        ents.add(Entity("dose", f"{_norm_num(m.group(1))}{unit}", m.group(1)))
 
     # "every N hours" maps into the frequency space when it divides evenly
     for m in RE_EVERY_N.finditer(text):
@@ -473,8 +484,11 @@ def check_translation(
     for e in src:
         if e.kind in {"dose", "ratio"}:
             num = re.match(r"[\d.]+", e.canon)
-            if num and num.group(0) not in vi_low:
-                literal_missing.append(e)
+            if num:
+                n = num.group(0)
+                # Vietnamese often writes the decimal comma: 1,5 for 1.5.
+                if n not in vi_low and n.replace(".", ",") not in vi_low:
+                    literal_missing.append(e)
         elif e.kind == "date":
             mo, day = e.canon.split("-")
             if not (re.search(rf"\b{day}\b", vi_low) and re.search(rf"\b{mo}\b", vi_low)):

@@ -83,6 +83,16 @@ SIMPLIFY_CASES = [
     ("units dropped", "Inject 18 units of insulin glargine at bedtime.",
      "Inject your insulin at bedtime.",
      False, "dose lost"),
+
+    ("rounded range",
+     "Drink approximately 1.5 to 2 L daily.",
+     "Drink approximately 2 to 2 L daily.",
+     False, "Picton et al: the bare end of a range was rounded"),
+
+    ("range preserved",
+     "Drink approximately 1.5 to 2 L daily.",
+     "Drink about 1.5 to 2 liters each day.",
+     True, "both ends of the range survive; L expands to liters"),
 ]
 
 # (name, source_en, output_vi, back_en, glossary, should_pass, why)

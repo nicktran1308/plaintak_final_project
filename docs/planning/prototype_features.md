@@ -32,7 +32,7 @@ Do items 1 through 7 as one batch. They are hours each. Items 8 through 10 are a
 
 ## First safety change
 
-11. **Track bare numerals next to a unit.** Rounding `1.5 to 2 L` to `2 to 2 L` was caught 0 of 3 times. A number becomes an entity only when a unit is attached, so the first value in a range is invisible. The extraction is in `extract_entities` in `backend/pipeline/gate.py`. Add a case to `backend/tests/test_gate.py`. This is one or two days, and it is the easy safety fix to do before any larger gate work.
+11. **Track bare numerals next to a unit.** Done. In a range such as `1.5 to 2 L`, the first number inherits the unit. Rounding it to `2 to 2 L` now blocks. A faithful `1.5 to 2 liters` still passes. The cases are in `backend/tests/test_gate.py`.
 
 ## Make the numbers defensible
 
@@ -79,4 +79,4 @@ Electronic health record integration, single sign-on, SOC 2, text-message remind
 
 ## First thing to build
 
-Items 1 through 7, 9, and 10 are done. Next is item 8, saying when a whole-document translation skipped a paragraph. Then bare numerals. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.
+Items 1 through 7 and 9 through 11 are done. Next is item 8, saying when a whole-document translation skipped a paragraph. Then more discharge sheets and the regression tests. The reviewer view comes after those, because it is the first new screen and it should sit on numbers that hold up.

@@ -1,15 +1,15 @@
 # PlainTalk — Update after the midterm status
 
 **Nick Tran · CPSC 597 · Dr. Chang-Hyun Jo**
-11 October 2026
+16 October 2026
 
-This note is the record of work done after `midterm_status.md`. That file remains the evidence brief for the measured system. This file is what changed afterward, written so the final report can use it. The safety numbers in the midterm brief were not re-run.
+This note is the record of work done after `midterm_status.md`. That file remains the evidence brief for the measured system. This file is what changed afterward, written so the final report and a new working session can use it. The safety tables in the midterm brief were not re-run, except the one new gate case below.
 
-The repository is public at https://github.com/nicktran1308/plaintak_final_project. `main` holds the course snapshot plus the changes below. New work continues on `prototype_features`.
+The repository is public at https://github.com/nicktran1308/plaintak_final_project. `main` and `prototype_features` are at the same commit as of this note. New work continues on `prototype_features`. The build order is `../planning/prototype_features.md`. The next item there is number 8.
 
 ## What the midterm brief left open, and what is now done
 
-`midterm_status.md` §10 named four interface findings that a later pass might fix, plus the final write-up. Three of those four findings are now fixed in the patient interface. Unassisted paper intake is not: there is still no camera, and a person alone with a paper sheet still has to type it.
+`midterm_status.md` §10 named four interface findings that a later pass might fix. Three are fixed. Unassisted paper intake is not: there is still no camera, and a person alone with a paper sheet still has to type it.
 
 | Midterm finding | Now |
 |---|---|
@@ -18,18 +18,20 @@ The repository is public at https://github.com/nicktran1308/plaintak_final_proje
 | On a phone the question box sat under the whole paper | Under 1000px the question panel is fixed to the bottom of the screen. Wider screens keep it in the side column. |
 | A person alone with paper has to type it in | Still true. |
 
-The second-speaker review of the 28 directive terms, and the interface inspection of Personas B and C, are already recorded in the midterm brief. They are not repeated here except for the two glossary wording changes, which the final report should use:
+The second-speaker review of the 28 directive terms, and the interface inspection of Personas B and C, are already recorded in the midterm brief. Two glossary wording changes belong in the final report:
 
 - **do not resume** is `không tiếp tục`. `không dùng lại` stays as an alternative. `không bắt đầu` stays forbidden.
 - Before a date, `cho đến khi` is allowed as well as `cho đến`. `trừ khi` stays forbidden.
 
 `resume` stays `uống lại`. Bare `tiếp tục` stays forbidden for that sense.
 
-## Interface changes since the brief
+## Changes since the brief
 
-None of these change the safety numbers. They change what the patient sees.
+### What the patient sees
 
-1. **A declined question says it was saved.** The explanation and the saved-list line are separate. Refusal and abstention both show the line, because both are stored for the clinician.
+None of these change the published safety tables.
+
+1. **A declined question says it was saved.** Refusal and abstention both show the line, because both are stored for the clinician. An emergency card does not.
 2. **The Vietnamese print button says Print.** `In` is the Vietnamese word for print, and it read as the English word “in.”
 3. **The reading-level number is hidden.** The card still shows the level. It no longer shows the Flesch-Kincaid grade. The backend still computes that number. On the metformin line the grade was 6.8 while the line still contained `PO` and `BID`.
 4. **The paste button says why it is off.** Until the text is 20 characters, the line under the button is “Need more information.” / “Cần thêm thông tin.”
@@ -39,19 +41,18 @@ None of these change the safety numbers. They change what the patient sees.
 8. **The level chip does not advance when the sentence did not change.** A real wording change still moves the chip.
 9. **On a phone the question box stays on screen,** pinned to the bottom.
 
-The build order and the items still ahead are in `../planning/prototype_features.md`.
+### One safety change
 
-## What is still open for the final report
+**Bare numerals in a range are tracked.** In `1.5 to 2 L`, the first number now inherits the unit. Rounding it to `2 to 2 L` blocks. A faithful `1.5 to 2 liters` still passes. Before this change that rounding was caught 0 of 3 times. The 0% figure in `midterm_status.md` §6.2 is the old measurement. The new cases are `rounded range` and `range preserved` in `backend/tests/test_gate.py`. The gate tests are 24 of 24. The fault-injection table was not re-run.
 
-These are unchanged from the midterm brief, except where a row above says otherwise.
+## What is still open
 
-- **A skipped paragraph in whole-document translation is silent.** `translateAll` leaves a failed paragraph in English and continues, with no reason on the card. That is the next interface item.
-- **Bare numerals in a range are now tracked.** `1.5 to 2 L` rounded to `2 to 2 L` is blocked. This was 0 of 3 before the change. The measured table in the midterm brief is the old number.
-- **Negation scope is 18.2%.** Set comparison checks that a prohibition is present, not which clause it governs. That limit was deliberate for the semester.
+- **A skipped paragraph in whole-document translation is silent.** `translateAll` in `frontend/src/App.jsx` leaves a failed paragraph in English and continues, with no reason on the card. That is the next build.
+- **Negation scope is 18.2%.** Set comparison checks that a prohibition is present, not which clause it governs. That limit was deliberate for the semester. Do not install medspaCy to fix it. That install broke the pinned clinical stack once already.
 - **The safety numbers are one synthetic discharge sheet.** The translation comparison is 10 paragraphs, run once. Fault injection, not a natural catch rate, is the gate’s 82.4%.
 - **The exemplar arm was not tested the way the app runs it.** The evaluation used four fixed pairs, not retrieved ones.
-- **Two colloquial Vietnamese permission questions still reach the model.**
-- **Final report, demonstration, and presentation.** The weekly reports plus this note are the draft of the evidence. A README at the repository root now says how to install and run the system.
+- **Two colloquial Vietnamese permission questions still reach the model:** `Thuốc này uống được không bác?` and `Chỉ số này có cao lắm không?`
+- **Final report, demonstration, and presentation.** The weekly reports plus this note are the draft of the evidence. A README at the repository root says how to install and run the system.
 
 ## Where this update lives
 
@@ -60,5 +61,6 @@ These are unchanged from the midterm brief, except where a row above says otherw
 | Inspection of Personas B and C, and the accessibility check | `../interface/interface_walkthrough.md` §§9–14 |
 | Glossary wording | `../../backend/data/glossary_directive_DONE.jsonl` |
 | Patient-interface changes | `../../frontend/src/` |
-| Build order | `../planning/prototype_features.md` |
-| Measured results, unchanged | `midterm_status.md` §§6 and 11 |
+| Range-numeral check | `../../backend/pipeline/gate.py`, `../../backend/tests/test_gate.py` |
+| What to build next | `../planning/prototype_features.md` |
+| Measured results, except the new range case | `midterm_status.md` §§6 and 11 |

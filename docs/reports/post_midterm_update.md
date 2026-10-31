@@ -1,11 +1,11 @@
 # PlainTalk — Update after the midterm status
 
 **Nick Tran · CPSC 597 · Dr. Chang-Hyun Jo**
-16 October 2026
+31 October 2026
 
 This note is the record of work done after `midterm_status.md`. That file remains the evidence brief for the measured system. This file is what changed afterward, written so the final report and a new working session can use it. The safety tables in the midterm brief were not re-run, except the one new gate case below.
 
-The repository is public at https://github.com/nicktran1308/plaintak_final_project. `main` and `prototype_features` are at the same commit as of this note. New work continues on `prototype_features`. The build order is `../planning/prototype_features.md`. The next item there is number 8.
+The repository is public at https://github.com/nicktran1308/plaintak_final_project. New work continues on `prototype_features`. The build order is `../planning/prototype_features.md`. The next item there is number 2, offline tests for the known failures.
 
 ## What the midterm brief left open, and what is now done
 
@@ -45,11 +45,15 @@ None of these change the published safety tables.
 
 **Bare numerals in a range are tracked.** In `1.5 to 2 L`, the first number now inherits the unit. Rounding it to `2 to 2 L` blocks. A faithful `1.5 to 2 liters` still passes. Before this change that rounding was caught 0 of 3 times. The 0% figure in `midterm_status.md` §6.2 is the old measurement. The new cases are `rounded range` and `range preserved` in `backend/tests/test_gate.py`. The gate tests are 24 of 24. The fault-injection table was not re-run.
 
+### Evaluation corpus
+
+`eval/synthetic_docs/make_doc_pdf.py` now writes 19 synthetic discharge sheets. Sheet 00 is the original evaluation document, with the same sentences, still at `eval/synthetic_docs/discharge_instructions.pdf`. The other 18 are in `eval/synthetic_docs/sheets/`. They vary drugs, doses, dates, fluid ranges (`0.8 to 1.2 L` through `2 to 3 L`), and negations (`hold`, `do not`, `avoid`). Every name and hospital is invented. `eval/synthetic_docs/sheets/manifest.jsonl` lists the doses, dates, ranges, and negations in each sheet. Intake reads every sheet as 11 content paragraphs. The published QA, gate, simplification, and translation numbers have not been recomputed on these sheets.
+
 ## What is still open
 
 - **A skipped paragraph in whole-document translation is silent.** `translateAll` in `frontend/src/App.jsx` leaves a failed paragraph in English and continues, with no reason on the card. That is the next build.
 - **Negation scope is 18.2%.** Set comparison checks that a prohibition is present, not which clause it governs. That limit was deliberate for the semester. Do not install medspaCy to fix it. That install broke the pinned clinical stack once already.
-- **The safety numbers are one synthetic discharge sheet.** The translation comparison is 10 paragraphs, run once. Fault injection, not a natural catch rate, is the gate’s 82.4%.
+- **The published safety numbers are still one synthetic discharge sheet.** Eighteen more sheets exist, but the QA, gate, simplification, and translation harnesses have not been re-run on them. The translation comparison remains 10 paragraphs, run once. Fault injection, not a natural catch rate, is the gate’s 82.4%.
 - **The exemplar arm was not tested the way the app runs it.** The evaluation used four fixed pairs, not retrieved ones.
 - **Two colloquial Vietnamese permission questions still reach the model:** `Thuốc này uống được không bác?` and `Chỉ số này có cao lắm không?`
 - **Final report, demonstration, and presentation.** The weekly reports plus this note are the draft of the evidence. A README at the repository root says how to install and run the system.
@@ -62,5 +66,6 @@ None of these change the published safety tables.
 | Glossary wording | `../../backend/data/glossary_directive_DONE.jsonl` |
 | Patient-interface changes | `../../frontend/src/` |
 | Range-numeral check | `../../backend/pipeline/gate.py`, `../../backend/tests/test_gate.py` |
+| Nineteen synthetic discharge sheets | `../../eval/synthetic_docs/make_doc_pdf.py`, `../../eval/synthetic_docs/sheets/manifest.jsonl` |
 | What to build next | `../planning/prototype_features.md` |
 | Measured results, except the new range case | `midterm_status.md` §§6 and 11 |

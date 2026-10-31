@@ -1,54 +1,24 @@
-# Prototype features — what is left
+# Prototype features
 
-Work on the `prototype_features` branch. `main` is the snapshot that already includes everything marked done below. Do not redo the done items.
+Code-only work that makes the trustworthy-AI claim harder to dismiss. No patient testing, no hospital connection, no new language, no reviewer product.
 
-The longer product catalog is `plaintalk-startup-roadmap.md` in this folder. This file is the build order. The record of what changed after the midterm brief is `../reports/post_midterm_update.md`.
+`main` already includes everything in **Already done**. Work on `prototype_features`. The record of changes since the midterm brief is `../reports/post_midterm_update.md`. The measured system is `../reports/midterm_status.md`. Do not rewrite those safety tables. The 0% rounding figure there is the old measurement.
 
-## Next
+The claim: a small model plus a verifier that never asks the model whether it told the truth can beat an unchecked model on clinical text. Refusals and abstentions are branches. The gate compares normalized facts to the clinician’s original. The gate checks that a fact is present, not what it governs. Negation flips were caught 18.2% of the time. That boundary is the research topic.
 
-**8. Say when whole-document translation skipped a paragraph.** `translateAll` in `frontend/src/App.jsx` walks every paragraph. If the gate does not pass, or the call throws, that paragraph stays in English and the run continues. Nothing on the card says it was skipped. Show a short reason on that card, in English and Vietnamese (`frontend/src/i18n.js`). One failure must still not stop the rest of the document.
+## Build next, in this order
 
-## After that
+**1. More documents.** Done. Nineteen sheets. The original wording is unchanged. The other 18 are in `eval/synthetic_docs/sheets/`, with facts in `sheets/manifest.jsonl`. The published evals have not been re-run on them.
 
-Do these before building a new screen. The current safety numbers are one synthetic discharge sheet, and the translation result is 10 paragraphs run once.
+**2. A test for every known failure.** Next. These run offline with an injected model. Keep the two colloquial misses (`Thuốc này uống được không bác?`, `Chỉ số này có cao lắm không?`), the negation flips, the range-rounding case already in `backend/tests/test_gate.py`, and the back-translation restore bug. After this, a glossary or prompt change cannot silently break a cited result.
 
-12. **More discharge sheets.** `eval/synthetic_docs/make_doc_pdf.py` already builds one sheet. Generate 15 to 20 more with different drugs, doses, dates, and negations. A few days of authoring. The generator already exists.
+**3. Negation scope, without medspaCy.** Do not install medspaCy. It broke the pinned clinical stack once. A negation or a duration has to stay attached to the same instruction. “Avoid strenuous exertion for 7 days” rewritten as “Do not do hard exercise. Do not do heavy activity for 7 days” should fail, because the 7 days moved. Re-run the fault-injection set and report the new rate next to 18.2%. This is the result to lead with.
 
-13. **Run the translation arms more than once.** Repeat naive, protected, and full several times. Report a range. A few days, plus API cost. One run of 10 paragraphs is too thin to stand on.
+**4. Separate the two abstention layers.** At threshold 0.30, 47 of 159 abstentions were the model declining after retrieval. The others never called the model. Report both in every table. Then run the same question set through a second model with the same gate. State whether the zero false-answer rate depends on the model obeying.
 
-14. **Turn known failures into tests.** The colloquial misses (`Thuốc này uống được không bác?`, `Chỉ số này có cao lắm không?`), the negation cases, and the back-translation restore bug. The range-rounding case is already in `backend/tests/test_gate.py`. The test files already accept an injected model, so these can run offline. About a week.
+**5. Exemplars the way the app uses them.** The evaluation inserted four unrelated pairs. The app retrieves similar pairs. Run naive, placeholders only, and retrieved exemplars on the new sheets. Draw a conclusion only after that.
 
-## First product surface
-
-Do this after the items above. It is weeks, not hours.
-
-15. **A warning on text a person has not reviewed.** One banner. Machine translation of a critical document is supposed to be reviewed by a person.
-
-16. **A reviewer view.** One screen with the original, the simplification, the translation, and the back-translation. The gate’s reason sits on the sentence that failed. The reviewer approves, edits, or rejects that flag and signs the document. Record minutes per document. The patient app already shows the original and the gate badge.
-
-17. **Hide identity the way doses are hidden.** Name, date of birth, and record number should be placeholders before the model sees the text. Intake already treats some of those lines as headers.
-
-## Later safety work
-
-18. **Negation scope.** Weakest measured behavior, at 18.2%. It is not the next build. Do not install medspaCy. That install broke the pinned clinical stack once already. A narrower check that pairs a negation with its own clause, without that dependency, is the practical version. Do it after the regression tests exist.
-
-19. **Run the exemplar arm the way the app runs it.** The app retrieves similar pairs. The evaluation inserted four pairs from the top of the file. No conclusion was drawn. Re-run that arm with retrieval before claiming that examples help or hurt.
-
-## After a clinic is using it
-
-Do not build these until someone asks.
-
-20. Minutes per document on the reviewer view.
-21. Side-by-side PDF of both languages.
-22. A link or QR code on the printed sheet that opens the translated version.
-23. A second, larger text size. Body text is already 20px and document text 22px.
-24. A medication checklist drawn from the entities the gate already extracts, such as “HOLD metformin until 11/14.”
-25. Audio of the Vietnamese text, checked by a native speaker before it is offered.
-26. Spanish as the second language, only after the Vietnamese numbers are repeated on more than one sheet. Each language needs its own glossary, its own forbidden renderings, and a second native speaker.
-
-## Do not build
-
-Electronic health record integration, single sign-on, SOC 2, text-message reminders, caregiver accounts, teach-back alerts, pediatric mode, fax intake, and a public API. Consent forms, end-of-life discussions, and behavioral health stay with a human interpreter. Do not add advice or recommendations.
+**6. A verdict object.** For every blocked sentence, record which entity is missing, altered, or attached to the wrong clause, and the span. The interface, the tests, and the report should all read that object. Interpretable verification is the contribution.
 
 ## Already done
 
@@ -65,3 +35,6 @@ Do not rebuild these. Details are in `../reports/post_midterm_update.md`.
 9. Under 1000px the question panel is fixed to the bottom of the screen.
 10. A bare number in a range inherits the unit. `1.5 to 2 L` rounded to `2 to 2 L` blocks. Gate tests: 24 of 24.
 11. The Vietnamese print button says Print, not `In`.
+12. Nineteen synthetic discharge sheets. Original wording is unchanged. Facts are in `eval/synthetic_docs/sheets/manifest.jsonl`. The published evals have not been re-run on the new sheets.
+
+One interface gap is still open and is not part of the research order: `translateAll` in `frontend/src/App.jsx` leaves a failed paragraph in English and does not say so on the card. Fix it only if a demo of whole-document translation needs it.
